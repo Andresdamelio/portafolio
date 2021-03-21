@@ -47,13 +47,13 @@
             ></textarea>
           </div>
           <div class="flex justify-center mt-8">
-            <v-button
+            <Button
               text="Enviar"
               :hasIcon="true"
               icon="send-1"
               :hasExtraClasses="true"
               classes="justify-center w-full md:w-1/3"
-            ></v-button>
+            ></Button>
           </div>
         </div>
       </div>
@@ -62,12 +62,7 @@
 </template>
 
 <script>
-import Button from "./components/Button";
-
 export default {
-  name: "Contact",
-  components: {
-    "v-button": Button
-  }
-};
+  name: "Contact"
+}
 </script>

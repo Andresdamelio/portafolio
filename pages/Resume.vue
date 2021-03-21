@@ -9,16 +9,16 @@
         Educación
       </h2>
       <div class="items">
-        <v-item
+        <VItem
           title="Ingeniería informática"
           site="Universidad centroccidental Lisandro Alvarado"
           date="2014 - 2020"
-        ></v-item>
-        <v-item
+        ></VItem>
+        <VItem
           title="Ingeniería informática"
           site="Universidad centroccidental Lisandro Alvarado"
           date="2014 - 2020"
-        ></v-item>
+        ></VItem>
       </div>
     </section>
     <section class="work mt-8">
@@ -27,24 +27,24 @@
         Experiencia
       </h2>
       <div class="items">
-        <v-item
+        <VItem
           type="work"
           title="Freelancer"
           date="2019 - actualidad"
           description="Programador Fullstack, desarollo de aplicaciones empresariales."
-        ></v-item>
-        <v-item
+        ></VItem>
+        <VItem
           type="work"
           title="Analista programador - ISA Systems Group"
           date="2019 - actualidad"
           description="Programador Fullstack, desarollo de aplicaciones empresariales."
-        ></v-item>
-        <v-item
+        ></VItem>
+        <VItem
           type="work"
           title="Freelancer"
           date="2019 - actualidad"
           description="Programador Fullstack, desarollo de aplicaciones empresariales."
-        ></v-item>
+        ></VItem>
       </div>
     </section>
     <section class="certificates mt-8">
@@ -53,23 +53,19 @@
         Certificados
       </h2>
       <div class="items">
-        <v-item
+        <VItem
           type="education"
           title="Scrum Foundation Professional Certificate"
           site="CertiProf"
           date="2020 - 2022"
-        ></v-item>
+        ></VItem>
       </div>
     </section>
   </div>
 </template>
 
 <script>
-import Item from "./components/Item";
 export default {
-  name: "Resume",
-  components: {
-    "v-item": Item
-  }
-};
+  name: "Resume"
+}
 </script>

@@ -19,18 +19,17 @@
         Lo que hago
       </h2>
       <div class="flex flex-wrap mt-4">
-        <v-card
+        <VCard
           v-for="service in services"
-          :data="service"
           :key="service.id"
-        ></v-card>
+          :data="service"
+        ></VCard>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Card from "./components/Card";
 export default {
   name: "About",
   data() {
@@ -69,10 +68,7 @@ export default {
           alt: "Desarrollo móvil"
         }
       ]
-    };
-  },
-  components: {
-    "v-card": Card
+    }
   }
-};
+}
 </script>

@@ -12,14 +12,14 @@
 
 <script>
 export default {
-  name: "social-newtwork",
+  name: "SocialNewtwork",
   props: {
     social: {
       type: Object,
       required: true
     }
   }
-};
+}
 </script>
 
 <style lang="scss">

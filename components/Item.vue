@@ -22,7 +22,7 @@
 
 <script>
 export default {
-  name: "item",
+  name: "Item",
   props: {
     type: {
       type: String,
@@ -45,5 +45,5 @@ export default {
       required: false
     }
   }
-};
+}
 </script>

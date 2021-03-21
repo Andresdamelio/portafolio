@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: "button-primary",
+  name: "ButtonPrimary",
   props: {
     text: {
       type: String,
@@ -24,7 +24,8 @@ export default {
     },
     icon: {
       type: String,
-      required: false
+      required: false,
+      default: ""
     },
     hasExtraClasses: {
       type: Boolean,
@@ -32,7 +33,8 @@ export default {
     },
     classes: {
       type: String,
-      required: false
+      required: false,
+      default: ""
     },
     canDownload: {
       type: Boolean,
@@ -40,8 +42,9 @@ export default {
     },
     link: {
       type: String,
-      required: false
+      required: false,
+      default: ""
     }
   }
-};
+}
 </script>

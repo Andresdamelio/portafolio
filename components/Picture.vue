@@ -10,12 +10,12 @@
 
 <script>
 export default {
-  name: "profile-picture",
+  name: "ProfilePicture",
   props: {
     image: {
       type: Object,
       required: true
     }
   }
-};
+}
 </script>

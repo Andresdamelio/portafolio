@@ -1,13 +1,13 @@
 <template>
   <div>
     <header
-      class="grid grid-cols-1 md:grid-cols-2 bg-white rounded-20 p-8"
       v-if="profile"
+      class="grid grid-cols-1 md:grid-cols-2 bg-white rounded-20 p-8"
     >
       <div
         class="pr-0 flex items-center flex-col relative line__right md:pr-8 md:items-start md:flex-row"
       >
-        <v-picture :image="profile.image"></v-picture>
+        <VPicture :image="profile.image"></VPicture>
         <div
           class="personal-info ml-0 md:ml-6 mb-4 md:mb-0 text-center md:text-left"
         >
@@ -22,21 +22,19 @@
             {{ profile.profession }}
           </h3>
           <div class="social-networks mt-2">
-            <v-social-network
+            <VSocialNetwork
               v-for="social in profile.social_medias"
               :key="social.id"
               :social="social"
             >
-            </v-social-network>
+            </VSocialNetwork>
           </div>
         </div>
       </div>
       <div class="mt-4 pl-0 md:mt-0 md:pl-8">
         <div class="grid grid-cols-1 md:grid-cols-2">
           <div class="mb-2">
-            <h2 class="text-black-200 text-lg font-thin font-mitr">
-              Email
-            </h2>
+            <h2 class="text-black-200 text-lg font-thin font-mitr">Email</h2>
             <p class="text-black-200 text-base font-thin font-mitr">
               {{ profile.email }}
             </p>
@@ -50,68 +48,55 @@
             </p>
           </div>
           <div class="mb-2">
-            <h2 class="text-black-200 text-lg font-thin font-mitr">
-              Título
-            </h2>
+            <h2 class="text-black-200 text-lg font-thin font-mitr">Título</h2>
             <p class="text-black-200 text-base font-thin font-mitr">
               {{ profile.title }}
             </p>
           </div>
           <div class="mb-2 flex items-center">
-            <v-button
+            <VButton
               text="Descargar CV"
               :link="transformUrlPdf(profile.curriculum.url)"
               :hasIcon="true"
               icon="download"
               :canDownload="true"
-            ></v-button>
+            ></VButton>
           </div>
         </div>
       </div>
     </header>
-    <v-loader v-if="false"></v-loader>
+    <VLoader v-if="false"></VLoader>
   </div>
 </template>
 
 <script>
-import Picture from "./Picture";
-import SocialNetwork from "./SocialNetwork";
-import Button from "~/pages/components/Button";
-import Loader from "~/pages/components/Loader";
-
 export default {
-  name: "main-header",
-  components: {
-    "v-loader": Loader,
-    "v-button": Button,
-    "v-picture": Picture,
-    "v-social-network": SocialNetwork
-  },
+  name: "MainHeader",
   data() {
     return {
       profile: null
-    };
+    }
+  },
+  created() {
+    this.getPerson()
   },
   methods: {
     async getPerson() {
       try {
-        let { body } = await this.$http.get("profile");
-        this.profile = body;
+        const { body } = await this.$http.get("profile")
+        this.profile = body
 
-        console.log(this.profile);
-        this.$emit("change", this.profile.banner);
+        console.log(this.profile)
+        this.$emit("change", this.profile.banner)
       } catch (error) {
-        console.log(error);
+        console.log(error)
       }
     },
     transformUrlPdf(url) {
-      return url.replace("upload", "upload/fl_attachment");
+      return url.replace("upload", "upload/fl_attachment")
     }
-  },
-  created() {
-    this.getPerson();
   }
-};
+}
 </script>
 
 <style lang="scss">

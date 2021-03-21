@@ -68,8 +68,8 @@
 
 <script>
 export default {
-  name: "main-navbar"
-};
+  name: "MainNavbar"
+}
 </script>
 
 <style lang="scss">

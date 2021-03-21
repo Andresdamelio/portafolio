@@ -3,9 +3,7 @@
     <VBanner v-if="banner" :banner="banner"></VBanner>
     <div class="container mx-auto relative pt-60 px-4 pb-24 md:pb-0">
       <VHeader @change="setBanner"></VHeader>
-      <VBody>
-        <Nuxt />
-      </VBody>
+      <VBody></VBody>
     </div>
   </main>
 </template>
