@@ -83,10 +83,9 @@ export default {
   methods: {
     async getPerson() {
       try {
-        const { body } = await this.$http.get("profile")
-        this.profile = body
+        const { data } = await this.$axios.get("/profile")
+        this.profile = data
 
-        console.log(this.profile)
         this.$emit("change", this.profile.banner)
       } catch (error) {
         console.log(error)

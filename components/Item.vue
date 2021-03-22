@@ -9,6 +9,15 @@
         {{ date }}
       </p>
     </template>
+    <template v-else-if="type === 'courses'">
+      <p class="item-subtitle">{{ site }} - {{ date }}</p>
+      <a
+        :href="credential"
+        target="_blank"
+        class="block mt-1 mb-2 text-sm text-blue-600 font-medium"
+        >Ver credencial</a
+      >
+    </template>
     <template v-else>
       <p class="item-subtitle">
         {{ date }}
@@ -30,19 +39,28 @@ export default {
     },
     title: {
       type: String,
-      required: true
+      required: true,
+      default: ""
     },
     date: {
       type: String,
-      required: true
+      required: true,
+      default: ""
     },
     site: {
       type: String,
-      required: false
+      required: false,
+      default: ""
     },
     description: {
       type: String,
-      required: false
+      required: false,
+      default: ""
+    },
+    credential: {
+      type: String,
+      required: false,
+      default: ""
     }
   }
 }

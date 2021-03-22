@@ -47,13 +47,13 @@
             ></textarea>
           </div>
           <div class="flex justify-center mt-8">
-            <Button
+            <VButton
               text="Enviar"
               :hasIcon="true"
               icon="send-1"
               :hasExtraClasses="true"
               classes="justify-center w-full md:w-1/3"
-            ></Button>
+            ></VButton>
           </div>
         </div>
       </div>

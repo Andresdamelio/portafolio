@@ -10,14 +10,11 @@
       </h2>
       <div class="items">
         <VItem
-          title="Ingeniería informática"
-          site="Universidad centroccidental Lisandro Alvarado"
-          date="2014 - 2020"
-        ></VItem>
-        <VItem
-          title="Ingeniería informática"
-          site="Universidad centroccidental Lisandro Alvarado"
-          date="2014 - 2020"
+          v-for="education in educations"
+          :key="education.id"
+          :title="education.degree"
+          :site="education.institute"
+          :date="transformDatesToString(education.from, education.to)"
         ></VItem>
       </div>
     </section>
@@ -28,22 +25,12 @@
       </h2>
       <div class="items">
         <VItem
+          v-for="experience in experiences"
+          :key="experience.id"
           type="work"
-          title="Freelancer"
-          date="2019 - actualidad"
-          description="Programador Fullstack, desarollo de aplicaciones empresariales."
-        ></VItem>
-        <VItem
-          type="work"
-          title="Analista programador - ISA Systems Group"
-          date="2019 - actualidad"
-          description="Programador Fullstack, desarollo de aplicaciones empresariales."
-        ></VItem>
-        <VItem
-          type="work"
-          title="Freelancer"
-          date="2019 - actualidad"
-          description="Programador Fullstack, desarollo de aplicaciones empresariales."
+          :title="experience.position"
+          :date="transformDatesToString(experience.from, experience.to)"
+          :description="experience.description"
         ></VItem>
       </div>
     </section>
@@ -54,10 +41,13 @@
       </h2>
       <div class="items">
         <VItem
-          type="education"
-          title="Scrum Foundation Professional Certificate"
-          site="CertiProf"
-          date="2020 - 2022"
+          v-for="course in courses"
+          :key="course.id"
+          type="courses"
+          :title="course.name"
+          :site="course.platform"
+          :date="transformDate(course.date)"
+          :credential="course.credential"
         ></VItem>
       </div>
     </section>
@@ -66,6 +56,43 @@
 
 <script>
 export default {
-  name: "Resume"
+  name: "Resume",
+  data() {
+    return {
+      educations: null,
+      experiences: null,
+      courses: null
+    }
+  },
+  created() {
+    this.getResume()
+  },
+  methods: {
+    async getResume() {
+      try {
+        const { data } = await this.$axios.get("/resume")
+
+        this.educations = data.educations
+        this.experiences = data.experiences
+        this.courses = data.courses
+      } catch (error) {
+        console.log(error)
+      }
+    },
+    transformDatesToString(from, to) {
+      from = this.transformDate(from)
+      to = to ? this.transformDate(to) : "actualidad"
+
+      return `${from} - ${to}`
+    },
+    transformDate(date) {
+      date = new Date(date)
+      date.setMinutes(date.getMinutes() + date.getTimezoneOffset())
+
+      const options = { year: "numeric", month: "long" }
+
+      return new Intl.DateTimeFormat("ve-VE", options).format(date)
+    }
+  }
 }
 </script>

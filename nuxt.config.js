@@ -1,24 +1,22 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'portfolio',
+    title: "Andrés D'Amelio | Desarrollador web",
     htmlAttrs: {
-      lang: 'en',
+      lang: 'es',
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', type: 'style/css', href: 'https://file.myfontastic.com/eGWiTcPMnhULsJ9a8Kck4G/icons.css' }
-    ],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '~/assets/css/main.css',
+    '~/assets/css/icons.css',
     '~/assets/scss/main.scss'
   ],
 
@@ -41,10 +39,18 @@ export default {
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+
+    '@nuxtjs/router'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: ['@nuxtjs/axios'],
+
+  publicRuntimeConfig: {
+    axios: {
+      baseURL: 'http://localhost:1337'
+    }
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
