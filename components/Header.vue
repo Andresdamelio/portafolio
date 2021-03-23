@@ -59,7 +59,6 @@
               :link="transformUrlPdf(profile.curriculum.url)"
               :hasIcon="true"
               icon="download"
-              :canDownload="true"
             ></VButton>
           </div>
         </div>

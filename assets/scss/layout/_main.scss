@@ -41,6 +41,9 @@ body {
   border: 1px solid $azure-100;
   outline: none;
   transition: border-color .15s ease-in-out, background .15s ease-in-out;
+  &.error {
+    border-color: #ff0000;
+  }
   &::placeholder {
     font-family: Mitr;
     font-style: normal;
@@ -52,6 +55,9 @@ body {
   &:focus {
     background: transparent;
     border: 2px solid $azure-200;
+    &.error {
+      border-color: #ff0000;
+    }
   }
 }
 
