@@ -45,7 +45,7 @@ body {
     border-color: #ff0000;
   }
   &::placeholder {
-    font-family: Mitr;
+    @apply font-mitr;
     font-style: normal;
     font-weight: 200;
     font-size: 14px;

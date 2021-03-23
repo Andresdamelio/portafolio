@@ -95,6 +95,8 @@
       alt="Imagen de mensaje exitoso"
       @close="showModal = false"
     ></VModal>
+
+    <VLoader v-if="false"></VLoader>
   </div>
 </template>
 
@@ -105,6 +107,7 @@ export default {
     return {
       isValid: true,
       showModal: false,
+      showLoader: false,
       errors: {},
       contact: {
         name: "",
@@ -120,13 +123,16 @@ export default {
 
       if (this.isValid) {
         try {
+          this.showLoader = true
           const response = await this.$axios.post("/messages", this.contact)
           if (response.status === 200) {
             this.clean()
+            this.showLoader = false
             this.showModal = true
           }
         } catch (error) {
           console.log(error)
+          this.showLoader = false
         }
       }
     },

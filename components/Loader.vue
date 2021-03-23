@@ -1,5 +1,8 @@
 <template>
-  <div class="loader-container">
+  <div
+    class="w-full left-0 top-0 bottom-0 flex justify-center items-center bg-white z-60"
+    :class="[type === 'full' ? 'h-screen fixed' : 'absolute rounded-20']"
+  >
     <div class="loader">
       <div></div>
       <div></div>
@@ -9,8 +12,15 @@
 
 <script>
 export default {
-  name: "loader"
-};
+  name: "Loader",
+  props: {
+    type: {
+      type: String,
+      required: false,
+      default: ""
+    }
+  }
+}
 </script>
 
 <style lang="scss">
@@ -22,7 +32,7 @@ export default {
 
   div {
     position: absolute;
-    border: 4px solid red;
+    border: 6px solid #fac43d;
     opacity: 1;
     border-radius: 50%;
     animation: loader 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;

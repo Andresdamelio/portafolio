@@ -64,7 +64,8 @@
         </div>
       </div>
     </header>
-    <VLoader v-if="false"></VLoader>
+
+    <VLoader v-if="showLoader" type="full"></VLoader>
   </div>
 </template>
 
@@ -73,7 +74,8 @@ export default {
   name: "MainHeader",
   data() {
     return {
-      profile: null
+      profile: null,
+      showLoader: false
     }
   },
   created() {
@@ -82,11 +84,14 @@ export default {
   methods: {
     async getPerson() {
       try {
+        this.showLoader = true
         const { data } = await this.$axios.get("/profile")
         this.profile = data
 
+        this.showLoader = false
         this.$emit("change", this.profile.banner)
       } catch (error) {
+        this.showLoader = false
         console.log(error)
       }
     },
