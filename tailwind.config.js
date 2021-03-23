@@ -53,6 +53,9 @@ module.exports = {
       fontFamily: {
         mitr: ['"Mitr"', "system-ui", "-apple-system"],
         roboto: ['"Roboto"', "system-ui", "-apple-system"]
+      },
+      zIndex: {
+        '60': 60,
       }
     }
   },

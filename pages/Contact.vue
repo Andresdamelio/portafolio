@@ -86,6 +86,15 @@
         </div>
       </div>
     </div>
+
+    <VModal
+      v-if="showModal"
+      title="Mensaje enviado"
+      message="Su mensaje se ha enviado con éxito. Muchas gracias. En breve recibirá una respuesta."
+      image="message.svg"
+      alt="Imagen de mensaje exitoso"
+      @close="showModal = false"
+    ></VModal>
   </div>
 </template>
 
@@ -95,6 +104,7 @@ export default {
   data() {
     return {
       isValid: true,
+      showModal: false,
       errors: {},
       contact: {
         name: "",
@@ -105,11 +115,19 @@ export default {
     }
   },
   methods: {
-    sendMessage() {
+    async sendMessage() {
       this.validateFields()
 
       if (this.isValid) {
-        this.clean()
+        try {
+          const response = await this.$axios.post("/messages", this.contact)
+          if (response.status === 200) {
+            this.clean()
+            this.showModal = true
+          }
+        } catch (error) {
+          console.log(error)
+        }
       }
     },
     validateFields() {
