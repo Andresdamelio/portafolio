@@ -6,8 +6,8 @@
       <div class="py-3 w-full md:w-40">
         <img
           class="block flex-none bg-cover mx-auto md:mx-0"
-          :src="require(`~/assets/images/${data.image}`)"
-          :alt="data.alt"
+          :src="data.image.url"
+          :alt="data.image.alternativeText"
         />
       </div>
       <div

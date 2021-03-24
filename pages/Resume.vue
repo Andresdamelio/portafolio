@@ -51,6 +51,8 @@
         ></VItem>
       </div>
     </section>
+
+    <VLoader v-if="showLoader"></VLoader>
   </div>
 </template>
 
@@ -61,7 +63,8 @@ export default {
     return {
       educations: null,
       experiences: null,
-      courses: null
+      courses: null,
+      showLoader: false
     }
   },
   created() {
@@ -70,12 +73,16 @@ export default {
   methods: {
     async getResume() {
       try {
+        this.showLoader = true
         const { data } = await this.$axios.get("/resume")
 
         this.educations = data.educations
         this.experiences = data.experiences
         this.courses = data.courses
+
+        setTimeout(() => (this.showLoader = false), 1000)
       } catch (error) {
+        this.showLoader = false
         console.log(error)
       }
     },

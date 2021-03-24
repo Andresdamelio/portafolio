@@ -96,7 +96,7 @@
       @close="showModal = false"
     ></VModal>
 
-    <VLoader v-if="false"></VLoader>
+    <VLoader v-if="showLoader"></VLoader>
   </div>
 </template>
 
@@ -124,12 +124,12 @@ export default {
       if (this.isValid) {
         try {
           this.showLoader = true
-          const response = await this.$axios.post("/messages", this.contact)
-          if (response.status === 200) {
-            this.clean()
+          await this.$axios.post("/messages", this.contact)
+          this.clean()
+          setTimeout(() => {
             this.showLoader = false
             this.showModal = true
-          }
+          }, 1000)
         } catch (error) {
           console.log(error)
           this.showLoader = false
