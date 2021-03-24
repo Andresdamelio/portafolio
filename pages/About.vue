@@ -3,7 +3,7 @@
     <h1 class="text-3xl border-line font-medium text-black-300 font-mitr">
       Sobre mí
     </h1>
-    <div v-if="skills && Object.keys(skills).length" class="about-me">
+    <div class="about-me">
       <p
         class="my-4 text-black-200 font-roboto font-light text-lg text-justify"
       >
