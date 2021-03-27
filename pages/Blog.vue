@@ -5,29 +5,33 @@
     </h1>
     <section class="posts flex flex-wrap flex-col md:flex-row mt-8">
       <div
-        v-if="categories"
+        v-if="categories.length"
         class="categories w-full flex px-0 overflow-x-scroll md:overflow-hidden md:px-3 py-4"
       >
-        <div
+        <VCategory
           v-for="category in categories"
           :key="category.id"
-          :class="[
-            indexActive === category.id
-              ? 'bg-yellow-300'
-              : 'hover:bg-yellow-100'
-          ]"
-          class="inline-flex text-base leading-4 btn-primary rounded-full font-roboto font-medium tracking-wide mr-2 cursor-pointer text-violet-300 border-yellow-300"
-          @click="onActive(category.id)"
-        >
-          {{ category.name }}
-        </div>
+          :category="category"
+          :index="indexActive"
+          @selected="onActive(category.id)"
+        ></VCategory>
       </div>
-      <div v-if="articles" class="flex flex-wrap">
+      <div v-if="articles.length" class="flex flex-wrap w-full">
         <VArticle
-          v-for="article in articles"
+          v-for="article in filterPost"
           :key="article.id"
           :article="article"
         ></VArticle>
+      </div>
+
+      <div
+        v-if="!filterPost.length"
+        class="w-full h-full flex flex-col items-center py-32"
+      >
+        <img class="w-20" src="~/assets/images/open-box.svg" alt="open box" />
+        <p class="font-medium text-black-300 font-mitr mt-3">
+          No hay posts con esta categoria
+        </p>
       </div>
     </section>
 
@@ -41,9 +45,21 @@ export default {
   data() {
     return {
       indexActive: 1,
-      categories: null,
-      articles: null,
+      categories: [],
+      articles: [],
       showLoader: false
+    }
+  },
+  computed: {
+    filterPost() {
+      return this.indexActive === 1
+        ? this.articles
+        : this.articles.filter(
+            (article) => article.category.id === this.indexActive
+          )
+    },
+    categoriesWithArticles() {
+      return true
     }
   },
   created() {
@@ -59,10 +75,11 @@ export default {
         this.categories = categories
         this.articles = articles
 
+        console.log(this.categories)
+
         setTimeout(() => (this.showLoader = false), 1000)
       } catch (error) {
         this.showLoader = false
-        console.log(error)
       }
     },
     onActive(index) {

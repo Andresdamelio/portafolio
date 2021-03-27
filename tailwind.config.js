@@ -7,6 +7,9 @@ module.exports = {
         "1/7": "15%",
         "6/7": "85%"
       },
+      height: {
+        34: "8.5rem",
+      },
       colors: {
         white: "#fff",
         orange: {
