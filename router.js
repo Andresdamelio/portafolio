@@ -7,7 +7,7 @@ const routeOptions = [
   { path: "/", name: "Home", redirect: "/sobre-mi" },
   { path: "/sobre-mi", name: "About" },
   { path: "/resumen", name: "Resume" },
-  { path: "/portafolio", name: "Portfolio" },
+  { path: "/portafolio", name: "Projects" },
   { path: "/blog", name: "Blog" },
   { path: "/contacto", name: "Contact" },
   { path: "/blog/:slug", name: "Post" }

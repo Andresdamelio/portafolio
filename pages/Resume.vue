@@ -15,7 +15,7 @@
           :title="education.degree"
           :site="education.institute"
           :date="transformDatesToString(education.from, education.to)"
-        ></VItem>
+        />
       </div>
     </section>
     <section class="work mt-8">
@@ -31,7 +31,7 @@
           :title="experience.position"
           :date="transformDatesToString(experience.from, experience.to)"
           :description="experience.description"
-        ></VItem>
+        />
       </div>
     </section>
     <section class="certificates mt-8">
@@ -48,11 +48,11 @@
           :site="course.platform"
           :date="transformDate(course.date)"
           :credential="course.credential"
-        ></VItem>
+        />
       </div>
     </section>
 
-    <VLoader v-if="showLoader"></VLoader>
+    <VLoader v-if="showLoader" />
   </div>
 </template>
 
@@ -83,7 +83,6 @@ export default {
         setTimeout(() => (this.showLoader = false), 1000)
       } catch (error) {
         this.showLoader = false
-        console.log(error)
       }
     },
     transformDatesToString(from, to) {

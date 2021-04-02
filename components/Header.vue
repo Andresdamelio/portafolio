@@ -7,7 +7,7 @@
       <div
         class="pr-0 flex items-center flex-col relative line__right md:pr-8 md:items-start md:flex-row"
       >
-        <VPicture :image="profile.image"></VPicture>
+        <VPicture :image="profile.image" />
         <div
           class="personal-info ml-0 md:ml-6 mb-4 md:mb-0 text-center md:text-left"
         >
@@ -17,7 +17,7 @@
             {{ profile.name }} {{ profile.lastname }}
           </h2>
           <h3
-            class="inline-block text-blakc-300 text-lg font-light font-mitr border-line"
+            class="inline-block text-black-300 text-lg font-light font-mitr border-line"
           >
             {{ profile.profession }}
           </h3>
@@ -26,8 +26,7 @@
               v-for="social in profile.social_medias"
               :key="social.id"
               :social="social"
-            >
-            </VSocialNetwork>
+            />
           </div>
         </div>
       </div>
@@ -57,9 +56,9 @@
             <VButton
               text="Descargar CV"
               :link="transformUrlPdf(profile.curriculum.url)"
-              :hasIcon="true"
+              :has-icon="true"
               icon="download"
-            ></VButton>
+            />
           </div>
         </div>
       </div>
@@ -92,7 +91,6 @@ export default {
         this.$emit("change", this.profile.banner)
       } catch (error) {
         this.showLoader = false
-        console.log(error)
       }
     },
     transformUrlPdf(url) {

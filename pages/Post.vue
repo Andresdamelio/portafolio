@@ -7,10 +7,21 @@
       Publicado el {{ post.created_at | transformDate("large") }}
     </p>
     <img
-      class="w-full h-auto rounded-2xl mt-4"
+      class="w-full h-auto rounded-2xl my-6"
       :src="post.image.url"
       alt="image.url"
     />
+    <!-- eslint-disable vue/no-v-html -->
+    <div
+      class="text-blakc-300 text-lg font-light font-roboto"
+      v-html="$md.render(post.content)"
+    ></div>
+
+    <div class="comments mt-8">
+      <Disqus lang="es_ES" />
+    </div>
+
+    <VLoader v-if="showLoader" />
   </div>
 </template>
 
@@ -19,6 +30,7 @@ export default {
   name: "Post",
   data() {
     return {
+      showLoader: false,
       post: ""
     }
   },
@@ -28,13 +40,16 @@ export default {
   methods: {
     async getPost() {
       try {
+        this.showLoader = true
         const { data: post } = await this.$axios.get(
           `/posts?slug=${this.$route.params.slug}`
         )
 
         this.post = post[0]
+
+        setTimeout(() => (this.showLoader = false), 1000)
       } catch (error) {
-        console.log(error)
+        this.showLoader = false
       }
     }
   }

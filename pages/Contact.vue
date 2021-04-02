@@ -77,11 +77,11 @@
           <div class="flex justify-center mt-8">
             <VButton
               text="Enviar"
-              :hasIcon="true"
+              :has-icon="true"
               icon="send-1"
               type="submit"
               @send="sendMessage"
-            ></VButton>
+            />
           </div>
         </div>
       </div>
@@ -94,9 +94,9 @@
       image="message.svg"
       alt="Imagen de mensaje exitoso"
       @close="showModal = false"
-    ></VModal>
+    />
 
-    <VLoader v-if="showLoader"></VLoader>
+    <VLoader v-if="showLoader" />
   </div>
 </template>
 
@@ -131,7 +131,6 @@ export default {
             this.showModal = true
           }, 1000)
         } catch (error) {
-          console.log(error)
           this.showLoader = false
         }
       }

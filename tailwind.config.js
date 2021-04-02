@@ -1,5 +1,17 @@
 module.exports = {
-  purge: [],
+  purge: {
+    enabled: false,
+    content: [
+      'components/**/*.vue',
+      'layouts/**/*.vue',
+      'pages/**/*.vue',
+      'plugins/**/*.js',
+      'nuxt.config.js',
+    ],
+    options: {
+      safelist: ['text-yellow-300']
+    },
+  },
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {

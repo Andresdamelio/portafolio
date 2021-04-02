@@ -1,9 +1,9 @@
 <template>
   <div>
     <h1 class="text-3xl border-line font-medium text-black-300 font-mitr">
-      Blog
+      Portafolio
     </h1>
-    <section class="posts flex flex-wrap flex-col md:flex-row mt-8">
+    <section class="flex flex-wrap flex-col md:flex-row mt-8">
       <div
         v-if="categories.length"
         class="categories w-full flex px-0 overflow-x-scroll md:overflow-hidden md:px-3 py-4"
@@ -16,63 +16,52 @@
           @selected="onActive(category.id)"
         />
       </div>
-      <div v-if="articles.length" class="flex flex-wrap w-full">
-        <VArticle
-          v-for="article in filterPost"
-          :key="article.id"
-          :article="article"
+      <div class="flex flex-wrap">
+        <VItemProject
+          v-for="project in filterPost"
+          :key="project.index"
+          :project="project"
         />
       </div>
-
-      <div
-        v-if="!filterPost.length"
-        class="w-full h-full flex flex-col items-center py-32"
-      >
-        <img class="w-20" src="~/assets/images/open-box.svg" alt="open box" />
-        <p class="font-medium text-black-300 font-mitr mt-3">
-          No hay posts con esta categoria
-        </p>
-      </div>
     </section>
-
     <VLoader v-if="showLoader" />
   </div>
 </template>
 
 <script>
 export default {
-  name: "Blog",
+  name: "Portfolio",
   data() {
     return {
       indexActive: 1,
-      categories: [],
-      articles: [],
-      showLoader: false
+      showLoader: false,
+      projects: [],
+      categories: []
     }
   },
   computed: {
     filterPost() {
       return this.indexActive === 1
-        ? this.articles
-        : this.articles.filter(
-            (article) => article.category.id === this.indexActive
+        ? this.projects
+        : this.projects.filter(
+            (project) => project.category.id === this.indexActive
           )
     }
   },
   created() {
-    this.getBlog()
+    this.getProjects()
   },
   methods: {
-    async getBlog() {
+    async getProjects() {
       try {
         this.showLoader = true
         const { data: categories } = await this.$axios.get(
-          "/categories?activeBlog=true&&_sort=created_at:ASC"
+          "/categories?activeProjects=true&&_sort=created_at:ASC"
         )
-        const { data: articles } = await this.$axios.get("/posts")
+        const { data: projects } = await this.$axios.get("/projects")
 
+        this.projects = projects
         this.categories = categories
-        this.articles = articles
 
         setTimeout(() => (this.showLoader = false), 1000)
       } catch (error) {
@@ -85,11 +74,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-@media (max-width: 768px) {
-  .categories::-webkit-scrollbar {
-    display: none;
-  }
-}
-</style>

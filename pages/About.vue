@@ -13,11 +13,11 @@
         Lo que hago
       </h2>
       <div class="flex flex-wrap mt-4">
-        <VCard v-for="skill in skills" :key="skill.id" :data="skill"></VCard>
+        <VCard v-for="skill in skills" :key="skill.id" :data="skill" />
       </div>
     </div>
 
-    <VLoader v-if="showLoader"></VLoader>
+    <VLoader v-if="showLoader" />
   </div>
 </template>
 
@@ -43,7 +43,6 @@ export default {
         this.skills = data.skills
         setTimeout(() => (this.showLoader = false), 1000)
       } catch (error) {
-        console.log(error)
         this.showLoader = false
       }
     }
