@@ -9,7 +9,7 @@
     <img
       class="w-full h-auto rounded-2xl my-6"
       :src="post.image.url"
-      alt="image.url"
+      :alt="post.image.alternativeText"
     />
     <!-- eslint-disable vue/no-v-html -->
     <div

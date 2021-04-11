@@ -13,11 +13,11 @@
       <div
         class="bg-white rounded-b md:rounded-b-none md:rounded-r px-0 md:px-3 py-2 flex flex-col leading-normal text-center md:text-left"
       >
-        <div
+        <h2
           class="text-black-300 font-medium font-mitr text-xl mb-2 leading-tight"
         >
           {{ data.title }}
-        </div>
+        </h2>
         <p class="text-black-20 text-base font-light font-roboto">
           {{ data.description }}
         </p>

@@ -15,10 +15,10 @@
         <h3 class="title text-base font-bold leading-5 text-white">
           {{ project.name }}
         </h3>
-        <span
-          class="inline-block px-2 py-1 leading-none bg-yellow-200 text-black-300 border-yellow-300 border rounded-full font-roboto font-medium tracking-wide text-xs uppercase"
-          >{{ project.category.name }}</span
-        >
+        <VTag
+          :name="project.category.name"
+          other-class="bg-yellow-200 border-yellow-200"
+        />
       </div>
     </router-link>
   </div>

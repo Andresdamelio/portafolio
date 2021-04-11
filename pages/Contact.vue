@@ -79,8 +79,8 @@
               text="Enviar"
               :has-icon="true"
               icon="send-1"
-              type="submit"
-              @send="sendMessage"
+              type="action"
+              @action="sendMessage"
             />
           </div>
         </div>

@@ -12,10 +12,10 @@
         />
       </div>
       <div class="card-body px-3 py-2">
-        <span
-          class="inline-block mb-2 px-2 py-1 leading-none bg-yellow-300 text-black-300 border-yellow-300 border rounded-full font-roboto font-medium tracking-wide text-xs uppercase"
-          >{{ article.category.name }}</span
-        >
+        <VTag
+          :name="article.category.name"
+          other-class="bg-yellow-300 border-yellow-300 mb-2"
+        />
         <div
           class="card-title mb-3 truncate-2 text-black-300 font-normal font-roboto text-base"
         >

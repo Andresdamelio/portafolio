@@ -10,7 +10,8 @@ const routeOptions = [
   { path: "/portafolio", name: "Projects" },
   { path: "/blog", name: "Blog" },
   { path: "/contacto", name: "Contact" },
-  { path: "/blog/:slug", name: "Post" }
+  { path: "/blog/:slug", name: "Post" },
+  { path: "/portafolio/:slug", name: "Project" }
 ]
 
 const routes = routeOptions.map((route) => {

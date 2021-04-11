@@ -1,8 +1,9 @@
 <template>
   <button
-    v-if="type === 'submit'"
-    class="inline-flex rounded text-black-300 bg-yellow-300 border-yellow-300 text-base font-medium leading-4 btn-primary justify-center w-full md:w-1/3"
-    @click="send"
+    v-if="type === 'action'"
+    class="inline-flex rounded text-black-300 bg-yellow-300 border-yellow-300 text-base font-medium leading-4 btn-primary justify-center"
+    :class="[!flex ? 'w-full md:w-1/3' : '']"
+    @click="action"
   >
     <span v-if="hasIcon" :class="[`icon icon-${icon} mr-1`]"></span>
     {{ text }}
@@ -44,11 +45,16 @@ export default {
       type: String,
       required: false,
       default: ""
+    },
+    flex: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
   methods: {
-    send() {
-      this.$emit("send")
+    action() {
+      this.$emit("action")
     }
   }
 }

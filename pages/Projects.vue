@@ -30,7 +30,7 @@
 
 <script>
 export default {
-  name: "Portfolio",
+  name: "Projects",
   data() {
     return {
       indexActive: 1,
