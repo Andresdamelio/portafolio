@@ -17,11 +17,12 @@ export default {
   css: [
     "~/assets/css/main.css",
     "~/assets/css/icons.css",
-    "~/assets/scss/main.scss"
+    "~/assets/scss/main.scss",
+    "swiper/css/swiper.min.css"
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ["~/plugins/filters.js", "~/plugins/disqus"],
+  plugins: ["~/plugins/filters.js", "~/plugins/disqus", { src: "~/plugins/vue-awesome-swiper.js", mode: 'client' }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: {
@@ -61,12 +62,12 @@ export default {
 
   publicRuntimeConfig: {
     axios: {
-      baseURL: "http://localhost:1337"
+      baseURL: process.env.NODE_ENV === "production" ? "https://api.andresdamelio.tech" : "http://localhost:1337"
     }
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    analyze: false
+    analyze: true
   }
 }

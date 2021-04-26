@@ -11,14 +11,60 @@
             :src="project.image.url"
             :alt="project.image.urlalternativeText"
           />
+          <p class="share py-3 text-black-300 font-medium font-mitr">
+            Compartir en
+            <a
+              href="#"
+              class="inline-block text-lg ml-2 mr-2 bg-yellow-200 hover:bg-yellow-300 border-yellow-300 p-2 rounded-md"
+            >
+              <span class="icon icon-facebook flex"></span>
+            </a>
+            <a
+              href="#"
+              class="inline-block text-lg mr-2 bg-yellow-200 hover:bg-yellow-300 border-yellow-300 p-2 rounded-md"
+            >
+              <span class="icon icon-twitter flex"></span>
+            </a>
+            <a
+              href="#"
+              class="inline-block text-lg mr-2 bg-yellow-200 hover:bg-yellow-300 border-yellow-300 p-2 rounded-md"
+            >
+              <span class="icon icon-instagram flex"></span>
+            </a>
+            <a
+              href="#"
+              class="inline-block text-lg mr-2 bg-yellow-200 hover:bg-yellow-300 border-yellow-300 p-2 rounded-md"
+            >
+              <span class="icon icon-linkedin flex"></span>
+            </a>
+          </p>
         </div>
       </div>
-      <div class="w-full md:w-1/3 p-2">
+      <div class="w-full md:w-1/3 p-2 pl-0 md:pl-2">
         <h2
           class="text-black-300 font-medium font-mitr text-xl mb-2 leading-tight border-line"
         >
-          Descripción
+          Acerca de
         </h2>
+        <div class="description my-3 font-roboto font-medium">
+          <p class="url-project text-black-300 mb-3">
+            <i class="icon icon-link"></i>
+            <a class="align-text-bottom" :href="project.url" target="_blank"
+              >Visitar {{ project.name }}</a
+            >
+          </p>
+
+          <p class="date-project text-black-300 mb-3">
+            <i class="icon icon-calendar"></i>
+            <span class="align-text-bottom">
+              {{ project.date | transformDate("short") }}
+            </span>
+          </p>
+
+          <p class="description-project text-black-300 mb-3">
+            {{ project.short_description }}
+          </p>
+        </div>
 
         <h2
           class="text-black-300 font-medium font-mitr text-xl mb-2 leading-tight border-line"
@@ -31,22 +77,32 @@
           :name="technology.name"
           other-class="bg-yellow-300 border-yellow-300 mb-2 mr-2"
         />
-
-        <h2
-          class="text-black-300 font-medium font-mitr text-xl mb-2 leading-tight border-line"
-        >
-          Galería
-        </h2>
-        <VButton
-          text="Ver galeria"
-          :has-icon="true"
-          icon="send-1"
-          type="action"
-          :flex="true"
-          @action="showGalery"
-        />
+        <div class="my-3">
+          <VButton
+            text="Ver galeria"
+            :has-icon="true"
+            icon="send-1"
+            type="action"
+            :flex="true"
+            @action="showGalery"
+          />
+        </div>
       </div>
     </div>
+
+    <h2
+      class="text-black-300 font-medium font-mitr text-xl mb-2 leading-tight border-line"
+    >
+      Que hice
+    </h2>
+    <VGallery
+      v-if="showGallery"
+      :title="project.name"
+      :images="project.gallery"
+      @close="close"
+    />
+
+    <VLoader v-if="showLoader" />
   </div>
 </template>
 
@@ -55,26 +111,34 @@ export default {
   name: "Project",
   data() {
     return {
-      project: null
+      project: null,
+      showGallery: false,
+      showLoader: false
     }
   },
   created() {
+    console.log(process.env.NODE_ENV)
     this.getProject()
   },
   methods: {
     async getProject() {
       try {
+        this.showLoader = true
         const { data: project } = await this.$axios.get(
           `/projects?slug=${this.$route.params.slug}`
         )
 
         this.project = project[0]
+        setTimeout(() => (this.showLoader = false), 1000)
       } catch (error) {
-        console.log(error)
+        this.showLoader = false
       }
     },
     showGalery() {
-      console.log("Abriendo galeria")
+      this.showGallery = true
+    },
+    close() {
+      this.showGallery = false
     }
   }
 }

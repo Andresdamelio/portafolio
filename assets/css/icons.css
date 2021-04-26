@@ -110,3 +110,15 @@
 .icon-mobile-app:before {
   content: "\78";
 }
+.icon-network:before {
+  content: "\79";
+}
+.icon-link:before {
+  content: "\7a";
+}
+.icon-instagram:before {
+  content: "\41";
+}
+.icon-facebook:before {
+  content: "\42";
+}
