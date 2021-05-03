@@ -1,3 +1,7 @@
+import siteMeta from "./utils/siteMeta";
+
+const meta = siteMeta();
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -6,11 +10,34 @@ export default {
       lang: "es"
     },
     meta: [
+      ...meta,
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { hid: "description", name: "description", content: "" }
+      { property: "og:site_name", content: "Andrés D'Amelio | Frontend Developer" },
+      { property: "og:image:width", content: "680" },
+      { property: "og:image:height", content: "356" },
+      { name: "twitter:site", content: "@andres_damelio" },
+      { name: "twitter:card", content: "summary_large_image" },
+      {
+        hid: "description",
+        name: "description",
+        content:
+          "Andres D'Amelio, ingeniero en informática, desarrollador web frontend, estudiante de platzi, autodidacta, escribo aplicaciones web usando los frameworks de javascript vue y react"
+      }
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
+    link: [
+      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+      {
+        rel: "stylesheet",
+        href:
+          "https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css"
+      },
+      {
+        hid: "canonical",
+        rel: "canonical",
+        href: process.env.NUXT_ENV_BASE_URL
+      }
+    ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -22,7 +49,11 @@ export default {
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ["~/plugins/filters.js", "~/plugins/disqus", { src: "~/plugins/vue-awesome-swiper.js", mode: 'client' }],
+  plugins: [
+    "~/plugins/filters.js",
+    "~/plugins/disqus",
+    { src: "~/plugins/vue-awesome-swiper.js", mode: "client" }
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: {
@@ -57,12 +88,16 @@ export default {
     linkify: true,
     breaks: true,
     injected: true,
-    html: true
+    html: true,
+    use: ["markdown-it-prism"]
   },
 
   publicRuntimeConfig: {
     axios: {
-      baseURL: process.env.NODE_ENV === "production" ? "https://api.andresdamelio.tech" : "http://localhost:1337"
+      baseURL:
+        process.env.NODE_ENV === "production"
+          ? "https://api.andresdamelio.tech"
+          : "http://localhost:1337"
     }
   },
 

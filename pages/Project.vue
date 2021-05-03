@@ -29,12 +29,6 @@
               href="#"
               class="inline-block text-lg mr-2 bg-yellow-200 hover:bg-yellow-300 border-yellow-300 p-2 rounded-md"
             >
-              <span class="icon icon-instagram flex"></span>
-            </a>
-            <a
-              href="#"
-              class="inline-block text-lg mr-2 bg-yellow-200 hover:bg-yellow-300 border-yellow-300 p-2 rounded-md"
-            >
               <span class="icon icon-linkedin flex"></span>
             </a>
           </p>
@@ -47,7 +41,7 @@
           Acerca de
         </h2>
         <div class="description my-3 font-roboto font-medium">
-          <p class="url-project text-black-300 mb-3">
+          <p v-if="project.url" class="url-project text-black-300 mb-3">
             <i class="icon icon-link"></i>
             <a class="align-text-bottom" :href="project.url" target="_blank"
               >Visitar {{ project.name }}</a
@@ -79,6 +73,7 @@
         />
         <div class="my-3">
           <VButton
+            v-if="project.gallery.length"
             text="Ver galeria"
             :has-icon="true"
             icon="send-1"
@@ -117,7 +112,7 @@ export default {
     }
   },
   created() {
-    console.log(process.env.NODE_ENV)
+    console.log(process.env.NUXT_ENV_API_URL)
     this.getProject()
   },
   methods: {
