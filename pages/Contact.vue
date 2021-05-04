@@ -101,6 +101,7 @@
 </template>
 
 <script>
+import siteMeta from "@/utils/siteMeta"
 export default {
   name: "Contact",
   data() {
@@ -115,6 +116,28 @@ export default {
         subject: "",
         message: ""
       }
+    }
+  },
+  head() {
+    return {
+      title: "Andrés D'Amelio | Contacto",
+      meta: [...this.meta],
+      link: [
+        {
+          hid: "canonical",
+          rel: "canonical",
+          href: `${process.env.BASE_URL}/contacto`
+        }
+      ]
+    }
+  },
+  computed: {
+    meta() {
+      const metaData = {
+        title: "Andrés D'Amelio | Contacto",
+        url: `${process.env.BASE_URL}/contacto`
+      }
+      return siteMeta(metaData)
     }
   },
   methods: {

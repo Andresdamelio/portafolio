@@ -1,6 +1,6 @@
-import siteMeta from "./utils/siteMeta";
+import siteMeta from "./utils/siteMeta"
 
-const meta = siteMeta();
+const meta = siteMeta()
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -13,7 +13,10 @@ export default {
       ...meta,
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { property: "og:site_name", content: "Andrés D'Amelio | Frontend Developer" },
+      {
+        property: "og:site_name",
+        content: "Andrés D'Amelio | Frontend Developer"
+      },
       { property: "og:image:width", content: "680" },
       { property: "og:image:height", content: "356" },
       { name: "twitter:site", content: "@andres_damelio" },
@@ -108,6 +111,6 @@ export default {
   },
 
   sitemap: {
-    hostname: process.env.BASE_URL,
-  },
+    hostname: process.env.BASE_URL
+  }
 }

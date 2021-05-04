@@ -40,6 +40,7 @@
 </template>
 
 <script>
+import siteMeta from "@/utils/siteMeta"
 export default {
   name: "Blog",
   data() {
@@ -50,6 +51,19 @@ export default {
       showLoader: false
     }
   },
+  head() {
+    return {
+      title: "Andrés D'Amelio | Blog",
+      meta: [...this.meta],
+      link: [
+        {
+          hid: "canonical",
+          rel: "canonical",
+          href: `${process.env.BASE_URL}/blog`
+        }
+      ]
+    }
+  },
   computed: {
     filterPost() {
       return this.indexActive === 1
@@ -57,6 +71,13 @@ export default {
         : this.articles.filter(
             (article) => article.category.id === this.indexActive
           )
+    },
+    meta() {
+      const metaData = {
+        title: "Andrés D'Amelio | Blog",
+        url: `${process.env.BASE_URL}/blog`
+      }
+      return siteMeta(metaData)
     }
   },
   created() {

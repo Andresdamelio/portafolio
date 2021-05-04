@@ -57,6 +57,7 @@
 </template>
 
 <script>
+import siteMeta from "@/utils/siteMeta"
 export default {
   name: "Resume",
   data() {
@@ -65,6 +66,28 @@ export default {
       experiences: null,
       courses: null,
       showLoader: false
+    }
+  },
+  head() {
+    return {
+      title: "Andrés D'Amelio | Resumen",
+      meta: [...this.meta],
+      link: [
+        {
+          hid: "canonical",
+          rel: "canonical",
+          href: `${process.env.BASE_URL}/resumen`
+        }
+      ]
+    }
+  },
+  computed: {
+    meta() {
+      const metaData = {
+        title: "Andrés D'Amelio | Resumen",
+        url: `${process.env.BASE_URL}/resumen`
+      }
+      return siteMeta(metaData)
     }
   },
   created() {

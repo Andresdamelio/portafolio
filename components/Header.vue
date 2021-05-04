@@ -33,9 +33,9 @@
       <div class="mt-4 pl-0 md:mt-0 md:pl-8">
         <div class="grid grid-cols-1 md:grid-cols-2">
           <div class="mb-2">
-            <h2 class="text-black-200 text-lg font-thin font-mitr">Email</h2>
+            <h2 class="text-black-200 text-lg font-thin font-mitr">Título</h2>
             <p class="text-black-200 text-base font-thin font-mitr">
-              {{ profile.email }}
+              {{ profile.title }}
             </p>
           </div>
           <div class="mb-2">
@@ -44,12 +44,6 @@
             </h2>
             <p class="text-black-200 text-base font-thin font-mitr">
               {{ profile.location }}
-            </p>
-          </div>
-          <div class="mb-2">
-            <h2 class="text-black-200 text-lg font-thin font-mitr">Título</h2>
-            <p class="text-black-200 text-base font-thin font-mitr">
-              {{ profile.title }}
             </p>
           </div>
           <div class="mb-2 flex items-center">

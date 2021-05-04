@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import siteMeta from "@/utils/siteMeta"
 export default {
   name: "About",
   data() {
@@ -29,6 +30,29 @@ export default {
       skills: null,
       about: "",
       showLoader: false
+    }
+  },
+  head() {
+    return {
+      title: "Andrés D'Amelio | Sobre mí",
+      meta: [...this.meta],
+      link: [
+        {
+          hid: "canonical",
+          rel: "canonical",
+          href: `${process.env.BASE_URL}/sobre-mi`
+        }
+      ]
+    }
+  },
+  computed: {
+    meta() {
+      const metaData = {
+        title: "Andrés D'Amelio | Sobre mí",
+        description: this.about,
+        url: `${process.env.BASE_URL}/sobre-mi`
+      }
+      return siteMeta(metaData)
     }
   },
   created() {

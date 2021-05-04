@@ -11,27 +11,7 @@
             :src="project.image.url"
             :alt="project.image.urlalternativeText"
           />
-          <p class="share py-3 text-black-300 font-medium font-mitr">
-            Compartir en
-            <a
-              href="#"
-              class="inline-block text-lg ml-2 mr-2 bg-yellow-200 hover:bg-yellow-300 border-yellow-300 p-2 rounded-md"
-            >
-              <span class="icon icon-facebook flex"></span>
-            </a>
-            <a
-              href="#"
-              class="inline-block text-lg mr-2 bg-yellow-200 hover:bg-yellow-300 border-yellow-300 p-2 rounded-md"
-            >
-              <span class="icon icon-twitter flex"></span>
-            </a>
-            <a
-              href="#"
-              class="inline-block text-lg mr-2 bg-yellow-200 hover:bg-yellow-300 border-yellow-300 p-2 rounded-md"
-            >
-              <span class="icon icon-linkedin flex"></span>
-            </a>
-          </p>
+          <VShareLinks padding="py-3" />
         </div>
       </div>
       <div class="w-full md:w-1/3 p-2 pl-0 md:pl-2">
@@ -102,13 +82,39 @@
 </template>
 
 <script>
+import siteMeta from "@/utils/siteMeta"
 export default {
   name: "Project",
   data() {
     return {
-      project: null,
+      project: "",
       showGallery: false,
       showLoader: false
+    }
+  },
+  head() {
+    return {
+      title: this.project.name,
+      meta: [...this.meta],
+      link: [
+        {
+          hid: "canonical",
+          rel: "canonical",
+          href: `${process.env.BASE_URL}/portafolio/${this.$route.params.slug}`
+        }
+      ]
+    }
+  },
+  computed: {
+    meta() {
+      const metaData = {
+        type: "article",
+        title: this.project.name,
+        description: this.project.short_description,
+        url: `${process.env.BASE_URL}/portafolio/${this.$route.params.slug}`,
+        mainImage: this.project.image?.url
+      }
+      return siteMeta(metaData)
     }
   },
   created() {

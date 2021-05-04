@@ -29,6 +29,7 @@
 </template>
 
 <script>
+import siteMeta from "@/utils/siteMeta"
 export default {
   name: "Projects",
   data() {
@@ -39,6 +40,19 @@ export default {
       categories: []
     }
   },
+  head() {
+    return {
+      title: "Andrés D'Amelio | Portafolio",
+      meta: [...this.meta],
+      link: [
+        {
+          hid: "canonical",
+          rel: "canonical",
+          href: `${process.env.BASE_URL}/portafolio`
+        }
+      ]
+    }
+  },
   computed: {
     filterPost() {
       return this.indexActive === 1
@@ -46,6 +60,13 @@ export default {
         : this.projects.filter(
             (project) => project.category.id === this.indexActive
           )
+    },
+    meta() {
+      const metaData = {
+        title: "Andrés D'Amelio | Portafolio",
+        url: `${process.env.BASE_URL}/portafolio`
+      }
+      return siteMeta(metaData)
     }
   },
   created() {
