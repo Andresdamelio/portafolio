@@ -112,7 +112,6 @@ export default {
     }
   },
   created() {
-    console.log(process.env.NUXT_ENV_API_URL)
     this.getProject()
   },
   methods: {

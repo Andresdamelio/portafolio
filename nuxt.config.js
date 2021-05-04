@@ -17,6 +17,7 @@ export default {
       { property: "og:image:width", content: "680" },
       { property: "og:image:height", content: "356" },
       { name: "twitter:site", content: "@andres_damelio" },
+      { name: "twitter:creator", content: "@andres_damelio" },
       { name: "twitter:card", content: "summary_large_image" },
       {
         hid: "description",
@@ -35,7 +36,7 @@ export default {
       {
         hid: "canonical",
         rel: "canonical",
-        href: process.env.NUXT_ENV_BASE_URL
+        href: process.env.BASE_URL
       }
     ]
   },
@@ -81,7 +82,7 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["@nuxtjs/axios", "@nuxtjs/markdownit"],
+  modules: ["@nuxtjs/axios", "@nuxtjs/markdownit", "@nuxtjs/sitemap"],
 
   markdownit: {
     preset: "default",
@@ -104,5 +105,9 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     analyze: true
-  }
+  },
+
+  sitemap: {
+    hostname: process.env.BASE_URL,
+  },
 }
