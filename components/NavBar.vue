@@ -84,7 +84,7 @@ export default {
   }
 
   @media (max-width: 768px) {
-    color: #fac43d !important;
+    border-bottom: 3px solid #fac43d;
   }
 }
 
