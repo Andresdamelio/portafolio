@@ -14,6 +14,7 @@
       <a
         :href="credential"
         target="_blank"
+        rel="noopener"
         class="block mt-1 mb-2 text-sm text-blue-600 font-medium"
         >Ver credencial</a
       >
