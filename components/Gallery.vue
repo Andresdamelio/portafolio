@@ -138,5 +138,72 @@ export default {
   &.gallery-thumbs .swiper-slide-active {
     opacity: 1;
   }
+
+  &-button-prev,
+  &-button-next {
+    position: absolute;
+    top: 50%;
+    width: calc(44px / 44 * 27);
+    height: 44px;
+    margin-top: calc(-1 * 44px / 2);
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+
+    &.swiper-button-disabled {
+      opacity: 0.35;
+      cursor: auto;
+      pointer-events: none;
+    }
+
+    &.swiper-button-white {
+      --swiper-navigation-color: #ffffff;
+    }
+
+    &.swiper-button-black {
+      --swiper-navigation-color: #000000;
+    }
+
+    &-button-lock {
+      display: none;
+    }
+
+    &::after {
+      font-family: swiper-icons;
+      font-size: 44px;
+      text-transform: none !important;
+      letter-spacing: 0;
+      text-transform: none;
+      font-variant: initial;
+      line-height: 1;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &-button-prev,
+  &-container-rtl &-button-next {
+    left: 10px;
+    right: auto;
+
+    &::after {
+      content: "prev";
+    }
+  }
+
+  &-button-next,
+  &-container-rtl &-button-prev {
+    right: 10px;
+    left: auto;
+
+    &::after {
+      content: "next";
+    }
+  }
 }
 </style>

@@ -49,7 +49,7 @@ export default {
     "~/assets/css/main.css",
     "~/assets/css/icons.css",
     "~/assets/scss/main.scss",
-    "swiper/css/swiper.min.css"
+    "swiper/swiper.scss",
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
