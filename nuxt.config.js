@@ -49,7 +49,7 @@ export default {
     "~/assets/css/main.css",
     "~/assets/css/icons.css",
     "~/assets/scss/main.scss",
-    "swiper/swiper.scss",
+    "swiper/swiper.scss"
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -81,8 +81,22 @@ export default {
     // https://go.nuxtjs.dev/tailwindcss
     "@nuxtjs/tailwindcss",
 
-    "@nuxtjs/router"
+    "@nuxtjs/router",
+
+    "@nuxtjs/google-fonts"
   ],
+
+  googleFonts: {
+    families: {
+      Mitr: {
+        wght: [100, 300, 500, 600]
+      },
+      Roboto: {
+        wght: [100, 300, 400, 500, 600]
+      }
+    },
+    display: "swap"
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: ["@nuxtjs/axios", "@nuxtjs/markdownit", "@nuxtjs/sitemap"],
