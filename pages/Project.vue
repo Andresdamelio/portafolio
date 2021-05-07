@@ -66,10 +66,27 @@
     </div>
 
     <h2
-      class="text-black-300 font-medium font-mitr text-xl mb-2 leading-tight border-line"
+      class="text-black-300 font-medium font-mitr text-xl my-4 leading-tight border-line"
+    >
+      Sobre el proyecto
+    </h2>
+    <!-- eslint-disable vue/no-v-html -->
+    <div
+      class="text-blakc-300 text-lg font-light font-roboto"
+      v-html="$md.render(project.description)"
+    ></div>
+
+    <h2
+      class="text-black-300 font-medium font-mitr text-xl my-4 leading-tight border-line"
     >
       Que hice
     </h2>
+
+    <div
+      class="text-blakc-300 text-lg font-light font-roboto"
+      v-html="$md.render(project.contributions)"
+    ></div>
+
     <VGallery
       v-if="showGallery"
       :title="project.name"

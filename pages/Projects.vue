@@ -16,7 +16,7 @@
           @selected="onActive(category.id)"
         />
       </div>
-      <div class="flex flex-wrap">
+      <div class="flex flex-wrap w-full">
         <VItemProject
           v-for="project in filterPost"
           :key="project.index"

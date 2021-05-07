@@ -6,8 +6,8 @@
     >
       <img
         class="w-full h-full"
-        :src="project.image.url"
-        :alt="project.image.alternativeText"
+        :src="project.thumbnail.url"
+        :alt="project.thumbnail.alternativeText"
       />
       <div
         class="card-footer w-full absolute bottom-2 p-2 z-10 opacity-0 flex justify-between"

@@ -14,7 +14,7 @@
     <VShareLinks padding="pt-3 pb-6" />
     <!-- eslint-disable vue/no-v-html -->
     <div
-      class="text-blakc-300 text-lg font-light font-roboto"
+      class="text-black-300 text-lg font-light font-roboto"
       v-html="$md.render(post.content)"
     ></div>
 
