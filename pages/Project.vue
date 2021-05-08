@@ -9,7 +9,7 @@
           <img
             class="w-full h-auto rounded-2xl"
             :src="project.image.url"
-            :alt="project.image.urlalternativeText"
+            :alt="project.image.alternativeText"
           />
           <VShareLinks padding="py-3" />
         </div>
@@ -23,7 +23,11 @@
         <div class="description my-3 font-roboto font-medium">
           <p v-if="project.url" class="url-project text-black-300 mb-3">
             <i class="icon icon-link"></i>
-            <a class="align-text-bottom" :href="project.url" target="_blank"
+            <a
+              class="align-text-bottom"
+              :href="project.url"
+              target="_blank"
+              aria-label="search"
               >Visitar {{ project.name }}</a
             >
           </p>
