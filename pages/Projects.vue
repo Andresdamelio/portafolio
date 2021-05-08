@@ -48,7 +48,7 @@ export default {
         {
           hid: "canonical",
           rel: "canonical",
-          href: `${process.env.BASE_URL}/portafolio`
+          href: `${this.$config.url}/portafolio`
         }
       ]
     }
@@ -64,7 +64,7 @@ export default {
     meta() {
       const metaData = {
         title: "Andrés D'Amelio | Portafolio",
-        url: `${process.env.BASE_URL}/portafolio`
+        url: `${this.$config.url}/portafolio`
       }
       return siteMeta(metaData)
     }

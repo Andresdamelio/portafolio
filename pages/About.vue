@@ -40,7 +40,7 @@ export default {
         {
           hid: "canonical",
           rel: "canonical",
-          href: `${process.env.BASE_URL}/sobre-mi`
+          href: `${this.$config.url}/sobre-mi`
         }
       ]
     }
@@ -50,7 +50,7 @@ export default {
       const metaData = {
         title: "Andrés D'Amelio | Sobre mí",
         description: this.about,
-        url: `${process.env.BASE_URL}/sobre-mi`
+        url: `${this.$config.url}/sobre-mi`
       }
       return siteMeta(metaData)
     }

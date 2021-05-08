@@ -54,7 +54,7 @@ export default {
         {
           hid: "canonical",
           rel: "canonical",
-          href: `${process.env.BASE_URL}/blog/${this.$route.params.slug}`
+          href: `${this.$config.url}/blog/${this.$route.params.slug}`
         }
       ]
     }
@@ -65,7 +65,7 @@ export default {
         type: "article",
         title: this.post.title,
         description: this.post.short_description,
-        url: `${process.env.BASE_URL}/blog/${this.$route.params.slug}`,
+        url: `${this.$config.url}/blog/${this.$route.params.slug}`,
         mainImage: this.post.image?.url
       }
       return siteMeta(metaData)

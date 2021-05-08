@@ -116,7 +116,8 @@ export default {
         process.env.NODE_ENV === "production"
           ? "https://api.andresdamelio.tech"
           : "http://localhost:1337"
-    }
+    },
+    url: process.env.BASE_URL || 'http://localhost:3000',
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

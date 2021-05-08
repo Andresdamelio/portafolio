@@ -126,7 +126,7 @@ export default {
         {
           hid: "canonical",
           rel: "canonical",
-          href: `${process.env.BASE_URL}/contacto`
+          href: `${this.$config.url}/contacto`
         }
       ]
     }
@@ -135,7 +135,7 @@ export default {
     meta() {
       const metaData = {
         title: "Andrés D'Amelio | Contacto",
-        url: `${process.env.BASE_URL}/contacto`
+        url: `${this.$config.url}/contacto`
       }
       return siteMeta(metaData)
     }

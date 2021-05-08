@@ -76,7 +76,7 @@ export default {
         {
           hid: "canonical",
           rel: "canonical",
-          href: `${process.env.BASE_URL}/resumen`
+          href: `${this.$config.url}/resumen`
         }
       ]
     }
@@ -85,7 +85,7 @@ export default {
     meta() {
       const metaData = {
         title: "Andrés D'Amelio | Resumen",
-        url: `${process.env.BASE_URL}/resumen`
+        url: `${this.$config.url}/resumen`
       }
       return siteMeta(metaData)
     }

@@ -117,7 +117,7 @@ export default {
         {
           hid: "canonical",
           rel: "canonical",
-          href: `${process.env.BASE_URL}/portafolio/${this.$route.params.slug}`
+          href: `${this.$config.url}/portafolio/${this.$route.params.slug}`
         }
       ]
     }
@@ -128,7 +128,7 @@ export default {
         type: "article",
         title: this.project.name,
         description: this.project.short_description,
-        url: `${process.env.BASE_URL}/portafolio/${this.$route.params.slug}`,
+        url: `${this.$config.url}/portafolio/${this.$route.params.slug}`,
         mainImage: this.project.image?.url
       }
       return siteMeta(metaData)

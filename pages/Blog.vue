@@ -59,7 +59,7 @@ export default {
         {
           hid: "canonical",
           rel: "canonical",
-          href: `${process.env.BASE_URL}/blog`
+          href: `${this.$config.url}/blog`
         }
       ]
     }
@@ -75,7 +75,7 @@ export default {
     meta() {
       const metaData = {
         title: "Andrés D'Amelio | Blog",
-        url: `${process.env.BASE_URL}/blog`
+        url: `${this.$config.url}/blog`
       }
       return siteMeta(metaData)
     }
