@@ -12,9 +12,9 @@
       <div
         class="card-footer w-full absolute bottom-2 p-2 z-10 opacity-0 flex justify-between"
       >
-        <h3 class="title text-base font-bold leading-5 text-white">
+        <h2 class="title text-base font-bold leading-5 text-white">
           {{ project.name }}
-        </h3>
+        </h2>
         <VTag
           :name="project.category.name"
           other-class="bg-yellow-200 border-yellow-200"
