@@ -28,6 +28,7 @@
               :href="project.url"
               target="_blank"
               aria-label="search"
+              rel="noopener"
               >Visitar {{ project.name }}</a
             >
           </p>
