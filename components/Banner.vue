@@ -4,7 +4,7 @@
       v-if="banner && Object.keys(banner).length"
       :src="banner.url"
       :alt="banner.alternativeText"
-      class="w-full h-full banner-img"
+      class="w-full h-full banner-img object-cover"
     />
   </div>
 </template>
