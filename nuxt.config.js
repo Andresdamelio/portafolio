@@ -99,7 +99,12 @@ export default {
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["@nuxtjs/axios", "@nuxtjs/markdownit", "@nuxtjs/sitemap"],
+  modules: [
+    "@nuxtjs/axios",
+    "@nuxtjs/markdownit",
+    "@nuxtjs/sitemap",
+    "@nuxtjs/robots"
+  ],
 
   markdownit: {
     preset: "default",
@@ -117,8 +122,19 @@ export default {
           ? "https://api.andresdamelio.tech"
           : "http://localhost:1337"
     },
-    url: process.env.BASE_URL || 'http://localhost:3000',
+    url: process.env.BASE_URL || "http://localhost:3000"
   },
+
+  robots: [
+    {
+      UserAgent: "Googlebot",
+      Disallow: "/nogooglebot/"
+    },
+    {
+      UserAgent: "*",
+      Allow: "/"
+    }
+  ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
