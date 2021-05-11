@@ -80,6 +80,7 @@ export default {
         loopedSlides: 5, // looped slides should be the same
         spaceBetween: 10,
         lazy: true,
+        setWrapperSize: true,
         navigation: {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev"
@@ -123,18 +124,14 @@ export default {
     background-size: cover;
     background-position: center;
     position: relative;
+
+    img[data-src] {
+      height: 300px;
+    }
   }
   &.gallery-tops {
     height: 80%;
     width: 100%;
-    position: relative;
-
-    .swiper-slide {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
   }
   &.gallery-thumbs {
     height: 20%;
@@ -221,6 +218,9 @@ export default {
     width: 42px;
     height: 42px;
     position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
     z-index: 10;
     animation: swiper-preloader-spin 1s infinite linear;
     box-sizing: border-box;
