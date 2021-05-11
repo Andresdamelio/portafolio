@@ -18,10 +18,11 @@
           >
             <swiper-slide v-for="image in images" :key="image.id">
               <img
-                class="w-full"
-                :src="image.url"
+                class="w-full swiper-lazy"
+                :data-src="image.url"
                 :alt="image.alternativeText"
               />
+              <div class="swiper-lazy-preloader"></div>
             </swiper-slide>
             <div
               slot="button-next"
@@ -78,6 +79,7 @@ export default {
         loop: true,
         loopedSlides: 5, // looped slides should be the same
         spaceBetween: 10,
+        lazy: true,
         navigation: {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev"
@@ -117,13 +119,22 @@ export default {
   background-color: #fff;
 }
 .swiper {
-  .swiper-slide {
+  &-slide {
     background-size: cover;
     background-position: center;
+    position: relative;
   }
-  &.gallery-top {
+  &.gallery-tops {
     height: 80%;
     width: 100%;
+    position: relative;
+
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
   }
   &.gallery-thumbs {
     height: 20%;
@@ -203,6 +214,23 @@ export default {
 
     &::after {
       content: "next";
+    }
+  }
+
+  &-lazy-preloader {
+    width: 42px;
+    height: 42px;
+    position: absolute;
+    z-index: 10;
+    animation: swiper-preloader-spin 1s infinite linear;
+    box-sizing: border-box;
+    border: 4px solid #fac43d;
+    border-radius: 50%;
+    border-top-color: transparent;
+  }
+  @keyframes swiper-preloader-spin {
+    100% {
+      transform: rotate(360deg);
     }
   }
 }
