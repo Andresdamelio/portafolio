@@ -222,6 +222,7 @@ export default {
     left: 50%;
     display: block;
     z-index: 10;
+    // transform: translate(-50%, -50%);
     animation: swiper-preloader-spin 1s infinite linear;
     box-sizing: border-box;
     border: 4px solid #fac43d;
