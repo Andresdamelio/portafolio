@@ -126,12 +126,10 @@ export default {
     url: process.env.BASE_URL || "http://localhost:3000"
   },
 
-  robots: [
-    {
-      UserAgent: "*",
-      Disallow: ""
-    }
-  ],
+  robots: {
+    UserAgent: '*',
+    Disallow: ''
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
