@@ -36,11 +36,6 @@ export default {
         rel: "stylesheet",
         href:
           "https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css"
-      },
-      {
-        hid: "canonical",
-        rel: "canonical",
-        href: process.env.BASE_URL
       }
     ]
   },
