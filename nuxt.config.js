@@ -15,6 +15,10 @@ export default {
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "robots", content: "index, follow" },
       {
+        name: "google-site-verification",
+        content: "Vcsy_0QgAa1Zy3aRteKlHXi2uhMIEmb3JkrhOmFceb8"
+      },
+      {
         property: "og:site_name",
         content: "Andrés D'Amelio | Frontend Developer"
       },
