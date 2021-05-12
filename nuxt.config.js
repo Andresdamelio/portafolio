@@ -128,12 +128,8 @@ export default {
 
   robots: [
     {
-      UserAgent: "Googlebot",
-      Disallow: "/nogooglebot/"
-    },
-    {
       UserAgent: "*",
-      Allow: "/"
+      Disallow: ""
     }
   ],
 
