@@ -133,7 +133,16 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    analyze: false
+    analyze: false,
+    minimize: true,
+    html: {
+      minify: {
+        minifyCSS: true,
+        minifyJS: true,
+        trimCustomFragments: true
+      }
+    },
+    publicPath: "/_nuxt/"
   },
 
   sitemap: {
