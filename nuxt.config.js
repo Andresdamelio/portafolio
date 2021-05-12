@@ -13,6 +13,7 @@ export default {
       ...meta,
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "robots", content: "index, follow" },
       {
         property: "og:site_name",
         content: "Andrés D'Amelio | Frontend Developer"
@@ -142,6 +143,16 @@ export default {
   },
 
   sitemap: {
-    hostname: process.env.BASE_URL
+    path: "sitemap.xml",
+    hostname: process.env.BASE_URL,
+    cacheTime: 1000 * 60 * 15,
+    gzip: false,
+    exclude: [],
+    defaults: {
+      changefreq: "daily",
+      priority: 1,
+      lastmod: new Date(),
+      lastmodrealtime: true
+    }
   }
 }
