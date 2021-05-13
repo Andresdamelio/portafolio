@@ -1,8 +1,12 @@
+import axios from "axios"
 import siteMeta from "./utils/siteMeta"
 
 const meta = siteMeta()
 
 export default {
+  target: "server",
+  ssr: true,
+  mode: "universal",
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: "Andrés D'Amelio | Frontend Developer",
@@ -81,8 +85,6 @@ export default {
     // https://go.nuxtjs.dev/tailwindcss
     "@nuxtjs/tailwindcss",
 
-    "@nuxtjs/router",
-
     "@nuxtjs/google-fonts"
   ],
 
@@ -117,12 +119,9 @@ export default {
 
   publicRuntimeConfig: {
     axios: {
-      baseURL:
-        process.env.NODE_ENV === "production"
-          ? "https://api.andresdamelio.tech"
-          : "http://localhost:1337"
+      baseURL: process.env.BASE_API_URL
     },
-    url: process.env.BASE_URL || "http://localhost:3000"
+    url: process.env.BASE_APP_URL
   },
 
   robots: {
@@ -144,17 +143,33 @@ export default {
     publicPath: "/_nuxt/"
   },
 
+  router: {
+    extendRoutes(routes, resolve) {
+      routes.push({
+        path: "/",
+        name: "Home",
+        redirect: "/sobre-mi"
+      })
+    }
+  },
+
   sitemap: {
-    path: "sitemap.xml",
-    hostname: process.env.BASE_URL,
-    cacheTime: 1000 * 60 * 15,
-    gzip: false,
-    exclude: [],
-    defaults: {
-      changefreq: "daily",
-      priority: 1,
-      lastmod: new Date(),
-      lastmodrealtime: true
+    path: "/sitemap.xml",
+    hostname: process.env.BASE_APP_URL,
+    cacheTime: 1000 * 60 * 60,
+    gzip: true,
+    routes: async () => {
+      let { data: articles } = await axios.get(
+        `${process.env.BASE_API_URL}/posts`
+      )
+      let { data: projects } = await axios.get(
+        `${process.env.BASE_API_URL}/projects`
+      )
+
+      articles = articles.map((article) => `/blog/${article.slug}`)
+      projects = projects.map((project) => `/portafolio/${project.slug}`)
+
+      return [...articles, ...projects]
     }
   }
 }

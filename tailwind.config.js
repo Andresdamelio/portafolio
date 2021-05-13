@@ -2,15 +2,15 @@ module.exports = {
   purge: {
     enabled: true,
     content: [
-      'components/**/*.vue',
-      'layouts/**/*.vue',
-      'pages/**/*.vue',
-      'plugins/**/*.js',
-      'nuxt.config.js',
+      "components/**/*.vue",
+      "layouts/**/*.vue",
+      "pages/**/*.vue",
+      "plugins/**/*.js",
+      "nuxt.config.js"
     ],
     options: {
-      safelist: ['text-yellow-300']
-    },
+      safelist: ["text-yellow-300"]
+    }
   },
   darkMode: false, // or 'media' or 'class'
   theme: {
@@ -20,7 +20,7 @@ module.exports = {
         "6/7": "85%"
       },
       height: {
-        34: "8.5rem",
+        34: "8.5rem"
       },
       colors: {
         white: "#fff",
@@ -70,7 +70,7 @@ module.exports = {
         roboto: ['"Roboto"', "system-ui", "-apple-system"]
       },
       zIndex: {
-        '60': 60,
+        60: 60
       }
     }
   },

@@ -6,61 +6,61 @@
       <li
         class="block w-1/5 md:w-full mb-0 md:mb-4 text-center h-auto md:h-24 bg-transparent md:bg-yellow-200 rounded-lg"
       >
-        <router-link
+        <nuxt-link
           to="/sobre-mi"
           class="flex flex-col items-center justify-center h-full w-full text-black-300 text-xs md:text-lg font-medium font-mitr item-link outline-none"
         >
           <span class="flex icon icon-about-me-1 text-2xl md:text-3xl"></span>
           <span>Sobre mí</span>
-        </router-link>
+        </nuxt-link>
       </li>
 
       <li
         class="block w-1/5 md:w-full mb-0 md:mb-4 text-center h-auto md:h-24 bg-transparent md:bg-yellow-200 rounded-lg"
       >
-        <router-link
+        <nuxt-link
           to="/resumen"
           class="flex flex-col items-center justify-center h-full w-full text-black-300 text-xs md:text-lg font-medium font-mitr item-link outline-none"
         >
           <span class="flex icon icon-resume-1 text-2xl md:text-3xl"></span>
           <span>Resumen</span>
-        </router-link>
+        </nuxt-link>
       </li>
 
       <li
         class="block w-1/5 md:w-full mb-0 md:mb-4 text-center h-auto md:h-24 bg-transparent md:bg-yellow-200 rounded-lg"
       >
-        <router-link
+        <nuxt-link
           to="/portafolio"
           class="flex flex-col items-center justify-center h-full w-full text-black-300 text-xs md:text-lg font-medium font-mitr item-link outline-none"
         >
           <span class="flex icon icon-portfolio text-2xl md:text-3xl"></span>
           <span>Portafolio</span>
-        </router-link>
+        </nuxt-link>
       </li>
 
       <li
         class="block w-1/5 md:w-full mb-0 md:mb-4 text-center h-auto md:h-24 bg-transparent md:bg-yellow-200 rounded-lg"
       >
-        <router-link
+        <nuxt-link
           to="/blog"
           class="flex flex-col items-center justify-center h-full w-full text-black-300 text-xs md:text-lg font-medium font-mitr item-link outline-none"
         >
           <span class="flex icon icon-blog text-2xl md:text-3xl"></span>
           <span>Blog</span>
-        </router-link>
+        </nuxt-link>
       </li>
 
       <li
         class="block w-1/5 md:w-full text-center mb-0 md:mb-4 h-auto md:h-24 bg-transparent md:bg-yellow-200 rounded-lg"
       >
-        <router-link
+        <nuxt-link
           to="/contacto"
           class="flex flex-col items-center justify-center h-full w-full text-black-300 text-xs md:text-lg font-medium font-mitr item-link outline-none"
         >
           <span class="flex icon icon-contact-1 text-2xl md:text-3xl"></span>
           <span>Contacto</span>
-        </router-link>
+        </nuxt-link>
       </li>
     </ul>
   </aside>
@@ -76,7 +76,7 @@ export default {
 .navbar {
   height: max-content;
 }
-.router-link-active {
+.nuxt-link-active {
   @media (min-width: 768px) {
     background: #fac43d;
     border-radius: 15px;

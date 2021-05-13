@@ -1,6 +1,6 @@
 <template>
   <div class="card post w-full md:w-1/3 py-2 px-0 md:px-3">
-    <router-link
+    <nuxt-link
       :to="`/blog/${article.slug}`"
       class="block bg-azure-100 mb-4 rounded-lg shadow-md hover:shadow-xl overflow-hidden"
     >
@@ -37,7 +37,7 @@
           </div>
         </div>
       </div>
-    </router-link>
+    </nuxt-link>
   </div>
 </template>
 

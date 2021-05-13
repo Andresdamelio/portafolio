@@ -1,6 +1,6 @@
 <template>
   <div class="card w-full h-48 md:w-1/3 my-2 px-0 md:px-3 relative">
-    <router-link
+    <nuxt-link
       :to="`/portafolio/${project.slug}`"
       class="block relative bg-azure-100 mb-4 rounded-lg shadow-md hover:shadow-xl overflow-hidden h-full work"
     >
@@ -20,7 +20,7 @@
           other-class="bg-yellow-200 border-yellow-200"
         />
       </div>
-    </router-link>
+    </nuxt-link>
   </div>
 </template>
 
