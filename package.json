@@ -20,8 +20,7 @@
     "nuxt": "^2.15.3",
     "swiper": "^5.4.5",
     "vue-awesome-swiper": "^4.1.1",
-    "vue-disqus": "^4.0.1",
-    "@nuxtjs/router": "^1.4.0"
+    "vue-disqus": "^4.0.1"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^6.0.0",
