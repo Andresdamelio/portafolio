@@ -145,11 +145,18 @@ export default {
 
   router: {
     extendRoutes(routes, resolve) {
-      routes.push({
-        path: "/",
-        name: "Home",
-        redirect: "/sobre-mi"
-      })
+      routes.push(
+        {
+          path: "/",
+          name: "Home",
+          redirect: "/sobre-mi"
+        },
+        {
+          name: "custom",
+          path: "*",
+          component: resolve(__dirname, "pages/404.vue")
+        }
+      )
     }
   },
 
