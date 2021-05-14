@@ -35,7 +35,14 @@ export default {
   head() {
     return {
       title: "Andrés D'Amelio | Sobre mí",
-      meta: [...this.meta]
+      meta: [...this.meta],
+      link: [
+        {
+          hid: "canonical",
+          rel: "canonical",
+          href: `${this.$config.url}`
+        }
+      ]
     }
   },
   computed: {
