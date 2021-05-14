@@ -164,6 +164,7 @@ export default {
     path: "/sitemap.xml",
     hostname: process.env.BASE_APP_URL,
     cacheTime: 1000 * 60 * 60,
+    exclude: ["/404"],
     gzip: true,
     routes: async () => {
       let { data: articles } = await axios.get(

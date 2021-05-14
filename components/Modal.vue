@@ -10,7 +10,7 @@
       </div>
       <div class="flex justify-center items-center">
         <img
-          class="w-40"
+          class="w-36"
           :src="require(`~/assets/images/${image}`)"
           :alt="alt"
         />
@@ -42,7 +42,8 @@ export default {
     },
     message: {
       type: String,
-      require: true
+      require: true,
+      default: ""
     },
     image: {
       type: String,

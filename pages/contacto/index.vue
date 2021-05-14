@@ -4,9 +4,9 @@
       Contacto
     </h1>
     <div class="flex flex-col md:flex-row mt-8 md:py-8">
-      <div class="w-full md:w-1/3">
+      <div class="w-full md:w-1/3 mb-4">
         <img
-          src="~/assets/images/contact-form.jpg"
+          src="~/assets/images/contact-form.svg"
           alt="Ilustration contact form"
         />
       </div>

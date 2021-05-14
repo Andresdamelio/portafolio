@@ -27,6 +27,10 @@
 <script>
 export default {
   name: "Page404",
-  methods: {}
+  head() {
+    return {
+      title: "404 página no encontrada"
+    }
+  }
 }
 </script>
