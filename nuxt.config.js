@@ -126,7 +126,8 @@ export default {
 
   robots: {
     UserAgent: "*",
-    Disallow: ""
+    Disallow: "",
+    Sitemap: `${process.env.BASE_APP_URL}/sitemap.xml`
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
