@@ -117,14 +117,7 @@ export default {
   head() {
     return {
       title: this.project.name,
-      meta: [...this.meta],
-      link: [
-        {
-          hid: "canonical",
-          rel: "canonical",
-          href: `${this.$config.url}/portafolio/${this.$route.params.slug}`
-        }
-      ]
+      meta: [...this.meta]
     }
   },
   computed: {

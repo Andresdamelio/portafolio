@@ -49,13 +49,6 @@ export default {
           property: "article:modified_time",
           content: this.post.updated_at
         }
-      ],
-      link: [
-        {
-          hid: "canonical",
-          rel: "canonical",
-          href: `${this.$config.url}/blog/${this.$route.params.slug}`
-        }
       ]
     }
   },

@@ -54,14 +54,7 @@ export default {
   head() {
     return {
       title: "Andrés D'Amelio | Blog",
-      meta: [...this.meta],
-      link: [
-        {
-          hid: "canonical",
-          rel: "canonical",
-          href: `${this.$config.url}/blog`
-        }
-      ]
+      meta: [...this.meta]
     }
   },
   computed: {

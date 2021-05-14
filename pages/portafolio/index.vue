@@ -43,14 +43,7 @@ export default {
   head() {
     return {
       title: "Andrés D'Amelio | Portafolio",
-      meta: [...this.meta],
-      link: [
-        {
-          hid: "canonical",
-          rel: "canonical",
-          href: `${this.$config.url}/portafolio`
-        }
-      ]
+      meta: [...this.meta]
     }
   },
   computed: {
