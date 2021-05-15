@@ -1,7 +1,4 @@
 import axios from "axios"
-import siteMeta from "./utils/siteMeta"
-
-const meta = siteMeta()
 
 export default {
   target: "server",
@@ -14,7 +11,6 @@ export default {
       lang: "es"
     },
     meta: [
-      ...meta,
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "robots", content: "index, follow" },
