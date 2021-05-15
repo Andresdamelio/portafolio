@@ -1,5 +1,12 @@
 <template>
   <div v-if="post">
+    <VSocialHead
+      type="article"
+      :title="post.title"
+      :description="post.short_description"
+      :url="`${$config.url}/blog/${$route.params.slug}`"
+      :image="post.image.url"
+    />
     <h1 class="text-3xl font-medium text-black-300 font-mitr">
       {{ post.title }}
     </h1>
@@ -27,61 +34,19 @@
 </template>
 
 <script>
-import siteMeta from "@/utils/siteMeta"
 export default {
   name: "Post",
-  data() {
-    return {
-      showLoader: false,
-      post: ""
-    }
+  async asyncData({ params, $axios }) {
+    const { data: post } = await $axios.get(`/posts?slug=${params.slug}`)
+    return { post: post[0], showLoader: true }
   },
   head() {
     return {
-      title: this.post.title,
-      meta: [
-        ...this.meta,
-        {
-          property: "article:published_time",
-          content: this.post.published_at
-        },
-        {
-          property: "article:modified_time",
-          content: this.post.updated_at
-        }
-      ]
-    }
-  },
-  computed: {
-    meta() {
-      const metaData = {
-        type: "article",
-        title: this.post.title,
-        description: this.post.short_description,
-        url: `${this.$config.url}/blog/${this.$route.params.slug}`,
-        mainImage: this.post.image?.url
-      }
-      return siteMeta(metaData)
+      title: this.post.title
     }
   },
   created() {
-    this.getPost()
-  },
-  methods: {
-    async getPost() {
-      try {
-        this.showLoader = true
-        const { data: post } = await this.$axios.get(
-          `/posts?slug=${this.$route.params.slug}`
-        )
-
-        this.post = post[0]
-
-        setTimeout(() => (this.showLoader = false), 1000)
-      } catch (error) {
-        this.showLoader = false
-      }
-    }
+    setTimeout(() => (this.showLoader = false), 1000)
   }
 }
 </script>

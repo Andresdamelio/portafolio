@@ -1,11 +1,15 @@
 <template>
   <div>
+    <VSocialHead
+      title="Andrés D'Amelio | Portafolio"
+      :url="`${$config.url}/portafolio`"
+    />
     <h1 class="text-3xl border-line font-medium text-black-300 font-mitr">
       Portafolio
     </h1>
     <section class="flex flex-wrap flex-col md:flex-row mt-8">
       <div
-        v-if="categories.length"
+        v-if="categories"
         class="categories w-full flex px-0 overflow-x-scroll md:overflow-hidden md:px-3 py-4"
       >
         <VCategory
@@ -29,21 +33,24 @@
 </template>
 
 <script>
-import siteMeta from "@/utils/siteMeta"
 export default {
   name: "Projects",
+  async asyncData({ $axios }) {
+    const { data: categories } = await $axios.get(
+      "/categories?activeProjects=true&&_sort=created_at:ASC"
+    )
+    const { data: projects } = await $axios.get("/projects")
+
+    return { categories, projects, showLoader: true }
+  },
   data() {
     return {
-      indexActive: 1,
-      showLoader: false,
-      projects: [],
-      categories: []
+      indexActive: 1
     }
   },
   head() {
     return {
-      title: "Andrés D'Amelio | Portafolio",
-      meta: [...this.meta]
+      title: "Andrés D'Amelio | Portafolio"
     }
   },
   computed: {
@@ -53,35 +60,12 @@ export default {
         : this.projects.filter(
             (project) => project.category.id === this.indexActive
           )
-    },
-    meta() {
-      const metaData = {
-        title: "Andrés D'Amelio | Portafolio",
-        url: `${this.$config.url}/portafolio`
-      }
-      return siteMeta(metaData)
     }
   },
   created() {
-    this.getProjects()
+    setTimeout(() => (this.showLoader = false), 1000)
   },
   methods: {
-    async getProjects() {
-      try {
-        this.showLoader = true
-        const { data: categories } = await this.$axios.get(
-          "/categories?activeProjects=true&&_sort=created_at:ASC"
-        )
-        const { data: projects } = await this.$axios.get("/projects")
-
-        this.projects = projects
-        this.categories = categories
-
-        setTimeout(() => (this.showLoader = false), 1000)
-      } catch (error) {
-        this.showLoader = false
-      }
-    },
     onActive(index) {
       this.indexActive = this.indexActive === index ? this.indexActive : index
     }

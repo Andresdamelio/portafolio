@@ -1,5 +1,9 @@
 <template>
   <div>
+    <VSocialHead
+      title="Andrés D'Amelio | Contacto"
+      :url="`${$config.url}/contacto`"
+    />
     <h1 class="text-3xl border-line font-medium text-blakc-300 font-mitr">
       Contacto
     </h1>
@@ -101,7 +105,6 @@
 </template>
 
 <script>
-import siteMeta from "@/utils/siteMeta"
 export default {
   name: "Contact",
   data() {
@@ -120,17 +123,7 @@ export default {
   },
   head() {
     return {
-      title: "Andrés D'Amelio | Contacto",
-      meta: [...this.meta]
-    }
-  },
-  computed: {
-    meta() {
-      const metaData = {
-        title: "Andrés D'Amelio | Contacto",
-        url: `${this.$config.url}/contacto`
-      }
-      return siteMeta(metaData)
+      title: "Andrés D'Amelio | Contacto"
     }
   },
   methods: {

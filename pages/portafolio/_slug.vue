@@ -1,5 +1,12 @@
 <template>
   <div v-if="project">
+    <VSocialHead
+      type="article"
+      :title="project.name"
+      :description="project.short_description"
+      :url="`${$config.url}/portafolio/${$route.params.slug}`"
+      :image="project.image.url"
+    />
     <h1 class="text-3xl font-medium text-black-300 font-mitr">
       {{ project.name }}
     </h1>
@@ -104,51 +111,26 @@
 </template>
 
 <script>
-import siteMeta from "@/utils/siteMeta"
 export default {
   name: "Project",
+  async asyncData({ params, $axios }) {
+    const { data: project } = await $axios.get(`/projects?slug=${params.slug}`)
+    return { project: project[0], showLoader: true }
+  },
   data() {
     return {
-      project: "",
-      showGallery: false,
-      showLoader: false
+      showGallery: false
     }
   },
   head() {
     return {
-      title: this.project.name,
-      meta: [...this.meta]
-    }
-  },
-  computed: {
-    meta() {
-      const metaData = {
-        type: "article",
-        title: this.project.name,
-        description: this.project.short_description,
-        url: `${this.$config.url}/portafolio/${this.$route.params.slug}`,
-        mainImage: this.project.image?.url
-      }
-      return siteMeta(metaData)
+      title: this.project.name
     }
   },
   created() {
-    this.getProject()
+    setTimeout(() => (this.showLoader = false), 1000)
   },
   methods: {
-    async getProject() {
-      try {
-        this.showLoader = true
-        const { data: project } = await this.$axios.get(
-          `/projects?slug=${this.$route.params.slug}`
-        )
-
-        this.project = project[0]
-        setTimeout(() => (this.showLoader = false), 1000)
-      } catch (error) {
-        this.showLoader = false
-      }
-    },
     showGalery() {
       this.showGallery = true
     },

@@ -23,6 +23,12 @@ export default {
         content: "Vcsy_0QgAa1Zy3aRteKlHXi2uhMIEmb3JkrhOmFceb8"
       },
       {
+        hid: "description",
+        name: "description",
+        content:
+          "Andres D'Amelio, ingeniero en informática, desarrollador web frontend, estudiante de platzi, autodidacta, escribo aplicaciones web usando los frameworks de javascript vue y react."
+      },
+      {
         property: "og:site_name",
         content: "Andrés D'Amelio | Frontend Developer"
       },

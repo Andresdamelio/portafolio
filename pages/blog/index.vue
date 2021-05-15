@@ -1,11 +1,12 @@
 <template>
   <div>
+    <VSocialHead title="Andrés D'Amelio | Blog" :url="`${$config.url}/blog`" />
     <h1 class="text-3xl border-line font-medium text-black-300 font-mitr">
       Blog
     </h1>
     <section class="posts flex flex-wrap flex-col md:flex-row mt-8">
       <div
-        v-if="categories.length"
+        v-if="categories"
         class="categories w-full flex px-0 overflow-x-scroll md:overflow-hidden md:px-3 py-4"
       >
         <VCategory
@@ -16,7 +17,7 @@
           @selected="onActive(category.id)"
         />
       </div>
-      <div v-if="articles.length" class="flex flex-wrap w-full">
+      <div class="flex flex-wrap w-full">
         <VArticle
           v-for="article in filterPost"
           :key="article.id"
@@ -40,21 +41,24 @@
 </template>
 
 <script>
-import siteMeta from "@/utils/siteMeta"
 export default {
   name: "Blog",
+  async asyncData({ $axios }) {
+    const { data: categories } = await $axios.get(
+      "/categories?activeBlog=true&&_sort=created_at:ASC"
+    )
+    const { data: articles } = await $axios.get("/posts")
+
+    return { categories, articles, showLoader: true }
+  },
   data() {
     return {
-      indexActive: 1,
-      categories: [],
-      articles: [],
-      showLoader: false
+      indexActive: 1
     }
   },
   head() {
     return {
-      title: "Andrés D'Amelio | Blog",
-      meta: [...this.meta]
+      title: "Andrés D'Amelio | Blog"
     }
   },
   computed: {
@@ -64,35 +68,12 @@ export default {
         : this.articles.filter(
             (article) => article.category.id === this.indexActive
           )
-    },
-    meta() {
-      const metaData = {
-        title: "Andrés D'Amelio | Blog",
-        url: `${this.$config.url}/blog`
-      }
-      return siteMeta(metaData)
     }
   },
   created() {
-    this.getBlog()
+    setTimeout(() => (this.showLoader = false), 1000)
   },
   methods: {
-    async getBlog() {
-      try {
-        this.showLoader = true
-        const { data: categories } = await this.$axios.get(
-          "/categories?activeBlog=true&&_sort=created_at:ASC"
-        )
-        const { data: articles } = await this.$axios.get("/posts")
-
-        this.categories = categories
-        this.articles = articles
-
-        setTimeout(() => (this.showLoader = false), 1000)
-      } catch (error) {
-        this.showLoader = false
-      }
-    },
     onActive(index) {
       this.indexActive = this.indexActive === index ? this.indexActive : index
     }
