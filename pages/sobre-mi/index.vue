@@ -41,7 +41,7 @@ export default {
         {
           hid: "canonical",
           rel: "canonical",
-          href: `${this.$config.url}`
+          href: `${this.$config.url}/sobre-mi`
         }
       ]
     }

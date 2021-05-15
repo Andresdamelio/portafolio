@@ -123,7 +123,14 @@ export default {
   },
   head() {
     return {
-      title: "Andrés D'Amelio | Contacto"
+      title: "Andrés D'Amelio | Contacto",
+      link: [
+        {
+          hid: "canonical",
+          rel: "canonical",
+          href: `${this.$config.url}/contacto`
+        }
+      ]
     }
   },
   methods: {

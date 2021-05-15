@@ -124,7 +124,14 @@ export default {
   },
   head() {
     return {
-      title: this.project.name
+      title: this.project.name,
+      link: [
+        {
+          hid: "canonical",
+          rel: "canonical",
+          href: `${this.$config.url}/portafolio/${this.$route.params.slug}`
+        }
+      ]
     }
   },
   created() {

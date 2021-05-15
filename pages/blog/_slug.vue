@@ -42,7 +42,14 @@ export default {
   },
   head() {
     return {
-      title: this.post.title
+      title: this.post.title,
+      link: [
+        {
+          hid: "canonical",
+          rel: "canonical",
+          href: `${this.$config.url}/blog/${this.$route.params.slug}`
+        }
+      ]
     }
   },
   created() {

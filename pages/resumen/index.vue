@@ -74,7 +74,14 @@ export default {
   },
   head() {
     return {
-      title: "Andrés D'Amelio | Resumen"
+      title: "Andrés D'Amelio | Resumen",
+      link: [
+        {
+          hid: "canonical",
+          rel: "canonical",
+          href: `${this.$config.url}/resumen`
+        }
+      ]
     }
   },
   created() {
