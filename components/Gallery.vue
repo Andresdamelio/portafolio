@@ -1,10 +1,14 @@
 <template>
   <div
-    class="modal h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black-300 bg-opacity-50 z-60"
+    class="modal h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black-300 bg-opacity-50 dark:bg-opacity-75 z-60"
   >
-    <div class="bg-white rounded-lg shadow-lg w-10/12 md:w-1/2">
+    <div
+      class="bg-white dark:bg-dark-400 rounded-lg shadow-lg w-10/12 md:w-1/2"
+    >
       <div class="px-4 py-2 flex justify-between items-center">
-        <h3 class="font-medium text-lg text-black-300 font-mitr">
+        <h3
+          class="font-medium text-lg text-black-300 dark:text-white font-mitr"
+        >
           {{ title }}
         </h3>
       </div>
@@ -26,11 +30,11 @@
             </swiper-slide>
             <div
               slot="button-next"
-              class="swiper-button-next swiper-button-white"
+              class="swiper-button-next swiper-button-white text-yellow-300"
             ></div>
             <div
               slot="button-prev"
-              class="swiper-button-prev swiper-button-white"
+              class="swiper-button-prev swiper-button-white text-yellow-300"
             ></div>
           </swiper>
           <swiper
@@ -159,20 +163,11 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
 
     &.swiper-button-disabled {
       opacity: 0.35;
       cursor: auto;
       pointer-events: none;
-    }
-
-    &.swiper-button-white {
-      --swiper-navigation-color: #ffffff;
-    }
-
-    &.swiper-button-black {
-      --swiper-navigation-color: #000000;
     }
 
     &-button-lock {

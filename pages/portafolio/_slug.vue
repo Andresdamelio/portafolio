@@ -7,7 +7,7 @@
       :url="`${$config.url}/portafolio/${$route.params.slug}`"
       :image="project.image.url"
     />
-    <h1 class="text-3xl font-medium text-black-300 font-mitr">
+    <h1 class="text-3xl font-medium text-black-300 dark:text-white font-mitr">
       {{ project.name }}
     </h1>
     <div class="flex flex-col md:flex-row mt-4">
@@ -23,12 +23,15 @@
       </div>
       <div class="w-full md:w-1/3 p-2 pl-0 md:pl-2">
         <h2
-          class="text-black-300 font-medium font-mitr text-xl mb-2 leading-tight border-line"
+          class="text-black-300 dark:text-white font-medium font-mitr text-xl mb-2 leading-tight border-line"
         >
           Acerca de
         </h2>
         <div class="description my-3 font-roboto font-medium">
-          <p v-if="project.url" class="url-project text-black-300 mb-3">
+          <p
+            v-if="project.url"
+            class="url-project text-black-300 dark:text-white mb-3"
+          >
             <i class="icon icon-link"></i>
             <a
               class="align-text-bottom"
@@ -40,20 +43,20 @@
             >
           </p>
 
-          <p class="date-project text-black-300 mb-3">
+          <p class="date-project text-black-300 dark:text-white mb-3">
             <i class="icon icon-calendar"></i>
             <span class="align-text-bottom">
               {{ project.date | transformDate("short") }}
             </span>
           </p>
 
-          <p class="description-project text-black-300 mb-3">
+          <p class="description-project text-black-300 dark:text-white mb-3">
             {{ project.short_description }}
           </p>
         </div>
 
         <h2
-          class="text-black-300 font-medium font-mitr text-xl mb-2 leading-tight border-line"
+          class="text-black-300 dark:text-white font-medium font-mitr text-xl mb-3 leading-tight border-line"
         >
           Tecnologías
         </h2>
@@ -78,24 +81,24 @@
     </div>
 
     <h2
-      class="text-black-300 font-medium font-mitr text-xl my-4 leading-tight border-line"
+      class="text-black-300 dark:text-white font-medium font-mitr text-xl my-4 leading-tight border-line"
     >
       Sobre el proyecto
     </h2>
     <!-- eslint-disable vue/no-v-html -->
     <div
-      class="text-blakc-300 text-lg font-light font-roboto"
+      class="text-black-300 dark:text-white text-lg font-light font-roboto"
       v-html="$md.render(project.description)"
     ></div>
 
     <h2
-      class="text-black-300 font-medium font-mitr text-xl my-4 leading-tight border-line"
+      class="text-black-300 dark:text-white font-medium font-mitr text-xl my-4 leading-tight border-line"
     >
       Que hice
     </h2>
 
     <div
-      class="text-blakc-300 text-lg font-light font-roboto"
+      class="text-black-300 dark:text-white text-lg font-light font-roboto"
       v-html="$md.render(project.contributions)"
     ></div>
 

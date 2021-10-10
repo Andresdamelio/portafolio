@@ -24,13 +24,13 @@
                 ref="name"
                 v-model="contact.name"
                 type="text"
-                class="input-control w-full"
+                class="input-control w-full dark:focus:bg-azure-100 dark:text-black-300 dark:placeholder-black-300"
                 placeholder="Nombre"
                 aria-label="Nombre"
               />
               <span
                 v-if="!isValid && errors.name"
-                class="text-sm text-red-600 font-normal"
+                class="text-sm text-red-600 dark:text-red-300 font-normal"
                 >{{ errors.name }}</span
               >
             </div>
@@ -39,13 +39,13 @@
                 ref="email"
                 v-model="contact.email"
                 type="email"
-                class="input-control w-full"
+                class="input-control w-full dark:focus:bg-azure-100 dark:text-black-300 dark:placeholder-black-300"
                 placeholder="Correo"
                 aria-label="Correo"
               />
               <span
                 v-if="!isValid && errors.email"
-                class="text-sm text-red-600 font-normal"
+                class="text-sm text-red-600 dark:text-red-300 font-normal"
                 >{{ errors.email }}</span
               >
             </div>
@@ -55,13 +55,13 @@
               ref="subject"
               v-model="contact.subject"
               type="text"
-              class="input-control w-full"
+              class="input-control w-full dark:focus:bg-azure-100 dark:text-black-300 dark:placeholder-black-300"
               placeholder="Asunto"
               aria-label="Asunto"
             />
             <span
               v-if="!isValid && errors.subject"
-              class="text-sm text-red-600 font-normal"
+              class="text-sm text-red-600 dark:text-red-300 font-normal"
               >{{ errors.subject }}</span
             >
           </div>
@@ -70,13 +70,13 @@
               ref="message"
               v-model="contact.message"
               placeholder="Mensaje"
-              class="input-control w-full resize-none"
+              class="input-control w-full resize-none dark:focus:bg-azure-100 dark:text-black-300 dark:placeholder-black-300"
               aria-label="Escribe tu mensaje"
               rows="5"
             ></textarea>
             <span
               v-if="!isValid && errors.message"
-              class="text-sm text-red-600 font-normal"
+              class="text-sm text-red-600 dark:text-red-300 font-normal"
               >{{ errors.message }}</span
             >
           </div>

@@ -95,7 +95,8 @@ module.exports = {
       "focus-within",
       "hover",
       "focus"
-    ]
+    ],
+    placeholderColor: ["dark", "hover", "active", "focus"]
   },
   plugins: []
 }

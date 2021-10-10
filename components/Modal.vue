@@ -2,9 +2,13 @@
   <div
     class="modal h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black-300 bg-opacity-50 z-60"
   >
-    <div class="bg-white rounded-lg shadow-lg w-10/12 md:w-1/3">
+    <div
+      class="bg-white dark:bg-dark-400 rounded-lg shadow-lg w-10/12 md:w-1/3"
+    >
       <div class="px-4 py-2 flex justify-between items-center">
-        <h3 class="font-medium text-lg text-black-300 font-mitr">
+        <h3
+          class="font-medium text-lg text-black-300 dark:text-white font-mitr"
+        >
           {{ title }}
         </h3>
       </div>
