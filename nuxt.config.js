@@ -93,7 +93,7 @@ export default {
 
   colorMode: {
     classSuffix: "",
-    preference: "light"
+    preference: "dark"
   },
 
   googleFonts: {
