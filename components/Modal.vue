@@ -20,7 +20,7 @@
         />
       </div>
       <div
-        class="p-4 text-black-200 font-roboto font-light text-lg text-center"
+        class="p-4 text-black-200 dark:text-white font-roboto font-light text-lg text-center"
       >
         {{ message }}
       </div>
