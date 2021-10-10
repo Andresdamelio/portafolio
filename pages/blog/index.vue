@@ -1,7 +1,9 @@
 <template>
   <div>
     <VSocialHead title="Andrés D'Amelio | Blog" :url="`${$config.url}/blog`" />
-    <h1 class="text-3xl border-line font-medium text-black-300 font-mitr">
+    <h1
+      class="text-3xl border-line font-medium text-black-300 dark:text-white font-mitr"
+    >
       Blog
     </h1>
     <section class="posts flex flex-wrap flex-col md:flex-row mt-8">

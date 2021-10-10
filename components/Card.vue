@@ -11,14 +11,16 @@
         />
       </div>
       <div
-        class="bg-white rounded-b md:rounded-b-none md:rounded-r px-0 md:px-3 py-2 flex flex-col leading-normal text-center md:text-left"
+        class="bg-white dark:bg-dark-400 rounded-b md:rounded-b-none md:rounded-r px-0 md:px-3 py-2 flex flex-col leading-normal text-center md:text-left"
       >
         <h2
-          class="text-black-300 font-medium font-mitr text-xl mb-2 leading-tight"
+          class="text-black-300 dark:text-white font-medium font-mitr text-xl mb-2 leading-tight"
         >
           {{ data.title }}
         </h2>
-        <p class="text-black-20 text-base font-light font-roboto">
+        <p
+          class="text-black-20 dark:text-white text-base font-light font-roboto"
+        >
           {{ data.description }}
         </p>
       </div>

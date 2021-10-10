@@ -9,10 +9,10 @@ module.exports = {
       "nuxt.config.js"
     ],
     options: {
-      safelist: ["text-yellow-300"]
+      safelist: ["text-yellow-300", "text-yellow-800"]
     }
   },
-  darkMode: false, // or 'media' or 'class'
+  darkMode: "class",
   theme: {
     extend: {
       width: {
@@ -48,7 +48,12 @@ module.exports = {
         yellow: {
           100: "#fff7af",
           200: "#fff499",
-          300: "#fac43d"
+          300: "#fabf2b",
+          800: "#7E6117"
+        },
+        dark: {
+          400: "#22384c",
+          500: "#1d262b"
         }
       },
       borderWidth: {
@@ -74,6 +79,23 @@ module.exports = {
       }
     }
   },
-  variants: {},
+  variants: {
+    backgroundColor: [
+      "responsive",
+      "dark",
+      "group-hover",
+      "focus-within",
+      "hover",
+      "focus"
+    ],
+    textColor: [
+      "responsive",
+      "dark",
+      "group-hover",
+      "focus-within",
+      "hover",
+      "focus"
+    ]
+  },
   plugins: []
 }

@@ -2,7 +2,7 @@
   <div class="card post w-full md:w-1/3 py-2 px-0 md:px-3">
     <nuxt-link
       :to="`/blog/${article.slug}`"
-      class="block bg-azure-100 mb-4 rounded-lg shadow-md hover:shadow-xl overflow-hidden"
+      class="block bg-azure-100 dark:bg-white mb-4 rounded-lg shadow-md hover:shadow-xl overflow-hidden"
     >
       <div class="h-auto md:h-36">
         <img
@@ -22,7 +22,7 @@
           {{ article.title }}
         </div>
         <div
-          class="flex justify-between text-gray-700 text-sm font-thin font-roboto mt-2 pt-3 border-gray-400 border-t"
+          class="flex justify-between text-gray-700 dark:text-black-300 text-sm font-thin font-roboto mt-2 pt-3 border-gray-400 border-t"
         >
           <div class="card-date">
             <span class="icon icon-calendar mr-1"></span>

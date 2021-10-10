@@ -10,6 +10,9 @@ export default {
     htmlAttrs: {
       lang: "es"
     },
+    bodyAttrs: {
+      class: "bg-azure-200 dark:bg-dark-500"
+    },
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -76,19 +79,22 @@ export default {
   },
 
   loading: {
-    color: "#fac43d",
+    color: "#fabf2b",
     height: "3px"
   },
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    // https://go.nuxtjs.dev/eslint
     "@nuxtjs/eslint-module",
-    // https://go.nuxtjs.dev/tailwindcss
     "@nuxtjs/tailwindcss",
-
-    "@nuxtjs/google-fonts"
+    "@nuxtjs/google-fonts",
+    "@nuxtjs/color-mode"
   ],
+
+  colorMode: {
+    classSuffix: "",
+    preference: "light"
+  },
 
   googleFonts: {
     families: {

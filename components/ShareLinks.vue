@@ -1,22 +1,25 @@
 <template>
-  <p class="share text-black-300 font-medium font-mitr" :class="[padding]">
+  <p
+    class="share text-black-300 dark:text-white font-medium font-mitr"
+    :class="[padding]"
+  >
     Compartir en
     <button
-      class="inline-block text-lg ml-2 mr-2 bg-yellow-200 hover:bg-yellow-300 border-yellow-300 p-2 rounded-md focus:outline-none"
+      class="inline-block text-lg ml-2 mr-2 text-black-300 bg-yellow-200 hover:bg-yellow-300 border-yellow-300 p-2 rounded-md focus:outline-none"
       aria-label="Compartir en facebook"
       @click="shareFacebook"
     >
       <span class="icon icon-facebook flex"></span>
     </button>
     <button
-      class="inline-block text-lg mr-2 bg-yellow-200 hover:bg-yellow-300 border-yellow-300 p-2 rounded-md focus:outline-none"
+      class="inline-block text-lg mr-2 text-black-300 bg-yellow-200 hover:bg-yellow-300 border-yellow-300 p-2 rounded-md focus:outline-none"
       aria-label="Compartir en twitter"
       @click="shareTwitter"
     >
       <span class="icon icon-twitter flex"></span>
     </button>
     <button
-      class="inline-block text-lg mr-2 bg-yellow-200 hover:bg-yellow-300 border-yellow-300 p-2 rounded-md focus:outline-none"
+      class="inline-block text-lg mr-2 text-black-300 bg-yellow-200 hover:bg-yellow-300 border-yellow-300 p-2 rounded-md focus:outline-none"
       aria-label="Compartir en linkedin"
       @click="shareLinkedin"
     >

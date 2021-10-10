@@ -4,7 +4,9 @@
       title="Andrés D'Amelio | Portafolio"
       :url="`${$config.url}/portafolio`"
     />
-    <h1 class="text-3xl border-line font-medium text-black-300 font-mitr">
+    <h1
+      class="text-3xl border-line font-medium text-black-300 dark:text-white font-mitr"
+    >
       Portafolio
     </h1>
     <section class="flex flex-wrap flex-col md:flex-row mt-8">

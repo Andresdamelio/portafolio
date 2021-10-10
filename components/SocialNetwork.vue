@@ -24,7 +24,7 @@ export default {
 
 <style lang="scss">
 .social-networks__link {
-  color: #fac43d;
+  color: #fabf2b;
   padding: 7px;
   border-radius: 50%;
   border: 0.8px solid transparent;
@@ -32,7 +32,7 @@ export default {
   &:hover {
     color: #4a575d;
     background: #fff7af;
-    border: 0.8px solid #fac43d;
+    border: 0.8px solid #fabf2b;
     box-shadow: 1px 2px 3px rgba(49, 50, 56, 0.3);
   }
 }

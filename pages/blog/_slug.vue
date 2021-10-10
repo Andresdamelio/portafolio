@@ -7,10 +7,10 @@
       :url="`${$config.url}/blog/${$route.params.slug}`"
       :image="post.image.url"
     />
-    <h1 class="text-3xl font-medium text-black-300 font-mitr">
+    <h1 class="text-3xl font-medium text-black-300 dark:text-white font-mitr">
       {{ post.title }}
     </h1>
-    <p class="text-gray-700 text-sm font-thin font-roboto mt-3">
+    <p class="text-gray-700 dark:text-white text-sm font-thin font-roboto mt-3">
       Publicado el {{ post.created_at | transformDate("large") }}
     </p>
     <img
@@ -21,11 +21,11 @@
     <VShareLinks padding="pt-3 pb-6" />
     <!-- eslint-disable vue/no-v-html -->
     <div
-      class="text-black-300 text-lg font-light font-roboto"
+      class="text-black-300 dark:text-white text-lg font-light font-roboto"
       v-html="$md.render(post.content)"
     ></div>
 
-    <div class="comments mt-8">
+    <div class="comments mt-8 dark:text-white">
       <Disqus lang="es_ES" />
     </div>
 

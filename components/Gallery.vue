@@ -224,7 +224,7 @@ export default {
     z-index: 10;
     animation: swiper-preloader-spin 1s infinite linear;
     box-sizing: border-box;
-    border: 4px solid #fac43d;
+    border: 4px solid #fabf2b;
     border-radius: 50%;
     border-top-color: transparent;
   }

@@ -1,7 +1,11 @@
 <template>
   <div
-    :class="[index === category.id ? 'bg-yellow-300' : 'hover:bg-yellow-100']"
-    class="inline-flex text-base leading-4 btn-primary rounded-full font-roboto font-medium tracking-wide mr-2 cursor-pointer text-violet-300 border-yellow-300"
+    :class="[
+      index === category.id
+        ? 'bg-yellow-300 text-black-300'
+        : 'hover:bg-yellow-100 text-black-300 dark:text-white dark:hover:text-black-300 hover:text-black-300'
+    ]"
+    class="inline-flex text-base leading-4 btn-primary rounded-full font-roboto font-medium tracking-wide mr-2 cursor-pointer border-yellow-300"
     @click="$emit('selected')"
   >
     {{ category.name }}

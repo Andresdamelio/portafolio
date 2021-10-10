@@ -2,7 +2,7 @@
   <div>
     <header
       v-if="profile"
-      class="grid grid-cols-1 md:grid-cols-2 bg-white rounded-20 p-8"
+      class="grid grid-cols-1 md:grid-cols-2 bg-white dark:bg-dark-400 rounded-20 p-8"
     >
       <div
         class="pr-0 flex items-center flex-col relative line__right md:pr-8 md:items-start md:flex-row"
@@ -12,12 +12,12 @@
           class="personal-info ml-0 md:ml-6 mb-4 md:mb-0 text-center md:text-left"
         >
           <h2
-            class="text-black-300 text-3xl font-semibold leading-3xl font-mitr"
+            class="text-black-300 dark:text-white text-3xl font-semibold leading-3xl font-mitr"
           >
             {{ profile.name }} {{ profile.lastname }}
           </h2>
           <h3
-            class="inline-block text-black-300 text-lg font-light font-mitr border-line"
+            class="inline-block text-black-300 dark:text-white text-lg font-light font-mitr border-line"
           >
             {{ profile.profession }}
           </h3>
@@ -33,16 +33,26 @@
       <div class="mt-4 pl-0 md:mt-0 md:pl-8">
         <div class="grid grid-cols-1 md:grid-cols-2">
           <div class="mb-2">
-            <h2 class="text-black-200 text-lg font-thin font-mitr">Título</h2>
-            <p class="text-black-200 text-base font-thin font-mitr">
+            <h2
+              class="text-black-200 dark:text-white text-lg font-thin font-mitr"
+            >
+              Título
+            </h2>
+            <p
+              class="text-black-200 dark:text-white text-base font-thin font-mitr"
+            >
               {{ profile.title }}
             </p>
           </div>
           <div class="mb-2">
-            <h2 class="text-black-200 text-lg font-thin font-mitr">
+            <h2
+              class="text-black-200 dark:text-white text-lg font-thin font-mitr"
+            >
               Ubicación
             </h2>
-            <p class="text-black-200 text-base font-thin font-mitr">
+            <p
+              class="text-black-200 dark:text-white text-base font-thin font-mitr"
+            >
               {{ profile.location }}
             </p>
           </div>

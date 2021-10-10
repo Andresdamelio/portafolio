@@ -4,7 +4,9 @@
       title="Andrés D'Amelio | Contacto"
       :url="`${$config.url}/contacto`"
     />
-    <h1 class="text-3xl border-line font-medium text-blakc-300 font-mitr">
+    <h1
+      class="text-3xl border-line font-medium text-blakc-300 dark:text-white font-mitr"
+    >
       Contacto
     </h1>
     <div class="flex flex-col md:flex-row mt-8 md:py-8">

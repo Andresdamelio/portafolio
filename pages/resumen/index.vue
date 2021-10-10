@@ -4,11 +4,15 @@
       title="Andrés D'Amelio | Resumen"
       :url="`${$config.url}/resumen`"
     />
-    <h1 class="text-3xl border-line font-medium text-black-300 font-mitr">
+    <h1
+      class="text-3xl border-line font-medium text-black-300 dark:text-white font-mitr"
+    >
       Resumen
     </h1>
     <section class="education mt-8">
-      <h2 class="text-2xl font-medium font-mitr text-black-300 mb-4">
+      <h2
+        class="text-2xl font-medium font-mitr text-black-300 dark:text-white mb-4"
+      >
         <span class="icon icon-education text-3xl text-yellow-300 mr-1"></span>
         Educación
       </h2>
@@ -23,7 +27,9 @@
       </div>
     </section>
     <section class="work mt-8">
-      <h2 class="text-2xl font-medium font-mitr text-black-300 mb-4">
+      <h2
+        class="text-2xl font-medium font-mitr text-black-300 dark:text-white mb-4"
+      >
         <span class="icon icon-work text-3xl text-yellow-300 mr-1"></span>
         Experiencia
       </h2>
@@ -39,7 +45,9 @@
       </div>
     </section>
     <section class="certificates mt-8">
-      <h2 class="text-2xl font-medium font-mitr text-black-300 mb-4">
+      <h2
+        class="text-2xl font-medium font-mitr text-black-300 dark:text-white mb-4"
+      >
         <span class="icon icon-badge text-3xl text-yellow-300 mr-1"></span>
         Certificados
       </h2>

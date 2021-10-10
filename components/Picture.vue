@@ -3,7 +3,7 @@
     <img
       :src="image.url"
       :alt="image.alternativeText"
-      class="w-full h-full border-solid border-5 border-azure-100 rounded-full"
+      class="w-full h-full border-solid border-5 border-azure-100 dark:border-dark-500 rounded-full"
     />
   </div>
 </template>
