@@ -33,9 +33,9 @@
         <span class="icon icon-work text-3xl text-yellow-300 mr-1"></span>
         Experiencia
       </h2>
-      <div v-if="experiences" class="items">
+      <div v-if="experiencesSort" class="items">
         <VItem
-          v-for="experience in experiences"
+          v-for="experience in experiencesSort"
           :key="experience.id"
           type="work"
           :title="experience.position"
@@ -90,6 +90,13 @@ export default {
           href: `${this.$config.url}/resumen`
         }
       ]
+    }
+  },
+  computed: {
+    experiencesSort() {
+      return [...this.experiences].sort(
+        (a, b) => new Date(b.from) - new Date(a.from)
+      )
     }
   },
   created() {
