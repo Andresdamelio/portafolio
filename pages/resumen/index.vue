@@ -41,6 +41,7 @@
           :title="experience.position"
           :date="transformDatesToString(experience.from, experience.to)"
           :description="experience.description"
+          :company="experience.company"
         />
       </div>
     </section>

@@ -1,6 +1,8 @@
 <template>
   <article class="item pb-2 px-6 pt-0 ml-4">
-    <h3 class="item-title dark:text-white">{{ title }}</h3>
+    <h3 class="item-title dark:text-white">
+      {{ title }} {{ company ? " - " + company : "" }}
+    </h3>
     <template v-if="type === 'education'">
       <p class="item-subtitle dark:text-white">
         {{ site }}
@@ -20,6 +22,7 @@
       >
     </template>
     <template v-else>
+      <p class="item-subtitle dark:text-white"></p>
       <p class="item-subtitle dark:text-white">
         {{ date }}
       </p>
@@ -59,6 +62,11 @@ export default {
       default: ""
     },
     credential: {
+      type: String,
+      required: false,
+      default: ""
+    },
+    company: {
       type: String,
       required: false,
       default: ""
