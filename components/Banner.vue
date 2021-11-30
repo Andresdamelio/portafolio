@@ -1,6 +1,7 @@
 <template>
   <div class="banner-container absolute top-0 left-0 w-full">
     <button
+      aria-label="switch dark mode"
       :class="`button-mode ${
         $colorMode.preference === 'dark'
           ? 'bg-gradient-to-r from-indigo-300 to-white dark-selected'
