@@ -5,6 +5,8 @@
     >
       <div class="py-3 w-full md:w-40">
         <img
+          width="64"
+          height="64"
           class="block flex-none bg-cover mx-auto md:mx-0"
           :src="data.image.url"
           :alt="data.image.alternativeText"
