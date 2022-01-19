@@ -48,7 +48,7 @@ export default {
   &.light-selected {
     .icon-mode {
       @apply transform translate-x-0;
-      background-image: url("assets/images/moon.png");
+      background-image: url("assets/images/moon.webp");
     }
     .selector-mode {
       @apply bg-gray-700 rounded-full transform translate-x-2;
@@ -57,7 +57,7 @@ export default {
   &.dark-selected {
     .icon-mode {
       @apply transform translate-x-8;
-      background-image: url("assets/images/contrast.png");
+      background-image: url("assets/images/contrast.webp");
     }
     .selector-mode {
       @apply bg-gray-900 rounded-full transform -translate-x-6;
