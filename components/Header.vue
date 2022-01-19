@@ -75,28 +75,18 @@
 <script>
 export default {
   name: "MainHeader",
+  props: {
+    profile: {
+      type: Object,
+      required: true
+    }
+  },
   data() {
     return {
-      profile: null,
       showLoader: false
     }
   },
-  created() {
-    this.getPerson()
-  },
   methods: {
-    async getPerson() {
-      try {
-        this.showLoader = true
-        const { data } = await this.$axios.get("/profile")
-        this.profile = data
-
-        this.showLoader = false
-        this.$emit("change", this.profile.banner)
-      } catch (error) {
-        this.showLoader = false
-      }
-    },
     transformUrlPdf(url) {
       return url.replace("upload", "upload/fl_attachment")
     }
