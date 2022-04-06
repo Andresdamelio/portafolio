@@ -1,20 +1,21 @@
-# portfolio
+# andresdamelio.tech
 
-## Build Setup
+Portfolio, created to showcase professional experience, training and share content.
 
-```bash
-# install dependencies
-$ npm install
+## Author
 
-# serve with hot reload at localhost:3000
-$ npm run dev
+- [@andres_damelio](https://twitter.com/andres_damelio)
 
-# build for production and launch server
-$ npm run build
-$ npm run start
+## Stack
 
-# generate static project
-$ npm run generate
-```
+- **Framework:** [Nuxt](https://nuxtjs.org/)
+- **Headless CMS:** [Strapi](https://strapi.io/)
+- **Styles:** [Tailwindcss](https://tailwindcss.com/)
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+## Feedback
+
+If you have any comments, please contact me. [Send message](mailto:me@andresdamelio.tech)
+
+## Contributing
+
+Contributions are always welcome!
