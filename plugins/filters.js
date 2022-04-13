@@ -12,5 +12,5 @@ Vue.filter("transformDate", (value, type = "default") => {
     options = { year: "numeric", month: "long" }
   }
 
-  return new Intl.DateTimeFormat("ve-VE", options).format(date)
+  return new Intl.DateTimeFormat("es-VE", options).format(date)
 })
