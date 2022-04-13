@@ -49,7 +49,7 @@ export default {
     const { data: categories } = await $axios.get(
       "/categories?activeBlog=true&&_sort=created_at:ASC"
     )
-    const { data: articles } = await $axios.get("/posts")
+    const { data: articles } = await $axios.get("/posts?_sort=created_at:DESC")
 
     return { categories, articles, showLoader: true }
   },
